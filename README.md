@@ -7,7 +7,7 @@ Installation
 ------------
 
 ```bash
-composer install gmo-pg-php
+composer install k1low/gmo-pg-php
 ```
 
 Usage
