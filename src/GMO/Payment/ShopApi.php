@@ -10,10 +10,10 @@ namespace GMO\Payment;
 /**
  * Shop API of GMO Payment.
  *
- * Shop ID (ショップ ID)
+ * Shop ID (ショップ ID)
  * --ShopID string(13) not null.
  *
- * Shop password (ショップパスワード)
+ * Shop password (ショップパスワード)
  * --ShopPass string(10) not null.
  *
  * $data = array('key' => 'value', ...)
@@ -68,11 +68,11 @@ class ShopApi extends Api {
    * subsequent settlement trading the issuance of transaction password,
    * you can start trading.
    *
-   * これ以降の決済取引で必要となる取引 ID と取引パスワードの発行を行い、取引を開始します。
+   * これ以降の決済取引で必要となる取引 ID と取引パスワードの発行を行い、取引を開始します。
    *
    * @Input parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Job cd (処理区分)
@@ -84,14 +84,14 @@ class ShopApi extends Api {
    *     AUTH: provisional sales (仮売上).
    *     SAUTH: simple authorization (簡易オーソリ).
    *
-   * Product code (商品コード)
+   * Product code (商品コード)
    * --ItemCode string(7) null.
    *
    *   The default is to apply the system fixed value ("0000990").
    *   If you enter a 7-digit less than the code, please to
    *   7 digits to fill the right-justified-before zero.
-   *   省略時はシステム固定値("0000990")を適用。7 桁未満のコードを入力
-   *   する場合は、右詰め・前ゼロを埋めて 7 桁にしてください。
+   *   省略時はシステム固定値("0000990")を適用。7 桁未満のコードを入力
+   *   する場合は、右詰め・前ゼロを埋めて 7 桁にしてください。
    *
    * Amount (利用金額)
    * --Amount integer(7) conditional null.
@@ -99,7 +99,7 @@ class ShopApi extends Api {
    * Tax (税送料)
    * --Tax integer(7) null.
    *
-   * 3D secure use flag (3D セキュア使用フラグ)
+   * 3D secure use flag (3D セキュア使用フラグ)
    * --TdFlag string(1) null default 0.
    *
    *   Allowed values:
@@ -119,7 +119,7 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32)
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32)
    */
   public function entryTran($order_id, $job_cd, $amount = 0, $data = array()) {
@@ -138,11 +138,11 @@ class ShopApi extends Api {
    * It is carried out with the necessary become trading ID in
    * subsequent settlement trading the issuance of trading password,
    * and then start trading.
-   * これ以降の決済取引で必要となる取引 ID と取引パスワードの発行を行い、取引を開始します。
+   * これ以降の決済取引で必要となる取引 ID と取引パスワードの発行を行い、取引を開始します。
    *
    * @Input parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Job cd (処理区分)
@@ -157,7 +157,7 @@ class ShopApi extends Api {
    *
    *   It must be less than or equal to 9,999,999 yen
    *   or more ¥ 1 in spending + tax postage or the vinegar.
-   *   利用金額+税送料で1円以上 9,999,999 円以下である必要がありま す。
+   *   利用金額+税送料で1円以上 9,999,999 円以下である必要がありま す。
    *
    * Tax (税送料)
    * --Tax integer(7) null.
@@ -167,7 +167,7 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32)
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32)
    */
   public function entryTranAu($order_id, $job_cd, $amount, $tax = 0) {
@@ -189,7 +189,7 @@ class ShopApi extends Api {
    *
    * @Input parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Amount (課金利用金額)
@@ -209,7 +209,7 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32)
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32)
    */
   public function entryTranAuContinuance($order_id, $amount, $first_amount, $data = array()) {
@@ -231,7 +231,7 @@ class ShopApi extends Api {
    *
    * @Input parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Amount (利用金額)
@@ -245,7 +245,7 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32)
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32)
    */
   public function entryTranCvs($order_id, $amount, $tax = 0) {
@@ -266,7 +266,7 @@ class ShopApi extends Api {
    *
    * @Input parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Job cd (処理区分)
@@ -281,7 +281,7 @@ class ShopApi extends Api {
    *
    *   It must be less than or equal to 9,999,999 yen
    *   or more ¥ 1 in spending + tax postage or the vinegar.
-   *   利用金額+税送料で1円以上 9,999,999 円以下である必要がありま す。
+   *   利用金額+税送料で1円以上 9,999,999 円以下である必要がありま す。
    *
    * Tax (税送料)
    * --Tax integer(6) null.
@@ -291,7 +291,7 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32)
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32)
    */
   public function entryTranDocomo($order_id, $job_cd, $amount, $tax = 0) {
@@ -313,7 +313,7 @@ class ShopApi extends Api {
    *
    * @Input parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Amount (利用金額)
@@ -327,7 +327,7 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32)
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32)
    */
   public function entryTranDocomoContinuance($order_id, $amount, $tax = 0) {
@@ -348,7 +348,7 @@ class ShopApi extends Api {
    *
    * @Input parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Amount (利用金額)
@@ -362,7 +362,7 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32)
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32)
    */
   public function entryTranEdy($order_id, $amount, $tax = 0) {
@@ -383,7 +383,7 @@ class ShopApi extends Api {
    *
    * @Input parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Amount (利用金額)
@@ -394,13 +394,13 @@ class ShopApi extends Api {
    *
    * @Output parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27)
    *
    * Access ID (取引 ID)
    * --AccessID string(32)
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32)
    */
   public function entryTranJcbPreca($order_id, $amount, $tax = 0) {
@@ -421,7 +421,7 @@ class ShopApi extends Api {
    *
    * @Input parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Amount (利用金額)
@@ -435,7 +435,7 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32)
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32)
    */
   public function entryTranJibun($order_id, $amount, $tax = 0) {
@@ -456,7 +456,7 @@ class ShopApi extends Api {
    *
    * @Input parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Amount (利用金額)
@@ -470,7 +470,7 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32)
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32)
    */
   public function entryTranPayEasy($order_id, $amount, $tax = 0) {
@@ -491,7 +491,7 @@ class ShopApi extends Api {
    *
    * @Input parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Job cd (処理区分)
@@ -506,25 +506,25 @@ class ShopApi extends Api {
    *
    *   It must be less than or equal to 9,999,999 yen
    *   or more ¥ 1 in spending + tax postage or the vinegar.
-   *   利用金額+税送料で1円以上 9,999,999 円以下である必要がありま す。
+   *   利用金額+税送料で1円以上 9,999,999 円以下である必要がありま す。
    *
    * Tax (税送料)
    * --Tax integer(10) null.
    *
-   * Currency (通貨コード)
+   * Currency (通貨コード)
    * --Currency string(3) null.
    *
    *   Default: JPY
    *
    * @Output parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27)
    *
    * Access ID (取引 ID)
    * --AccessID string(32)
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32)
    */
   public function entryTranPaypal($order_id, $job_cd, $amount, $data = array()) {
@@ -546,7 +546,7 @@ class ShopApi extends Api {
    *
    * @Input parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Job cd (処理区分)
@@ -561,7 +561,7 @@ class ShopApi extends Api {
    *
    *   It must be less than or equal to 9,999,999 yen
    *   or more ¥ 1 in spending + tax postage or the vinegar.
-   *   利用金額+税送料で1円以上 9,999,999 円以下である必要がありま す。
+   *   利用金額+税送料で1円以上 9,999,999 円以下である必要がありま す。
    *
    * Tax (税送料)
    * --Tax integer(5) null.
@@ -571,7 +571,7 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32)
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32)
    */
   public function entryTranSb($order_id, $job_cd, $amount, $tax = 0) {
@@ -593,7 +593,7 @@ class ShopApi extends Api {
    *
    * @Input parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Amount (利用金額)
@@ -607,7 +607,7 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32)
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32)
    */
   public function entryTranSuica($order_id, $amount, $tax = 0) {
@@ -628,7 +628,7 @@ class ShopApi extends Api {
    *
    * @Input parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Amount (利用金額)
@@ -639,13 +639,13 @@ class ShopApi extends Api {
    *
    * @Output parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27)
    *
    * Access ID (取引 ID)
    * --AccessID string(32)
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32)
    */
   public function entryTranWebmoney($order_id, $amount, $tax = 0) {
@@ -669,10 +669,10 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32)
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32)
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Method (支払方法)
@@ -681,14 +681,14 @@ class ShopApi extends Api {
    *   Allowed values:
    *     1: 一括
    *     2: 分割
-   *     3: ボーナス一括
-   *     4: ボーナス分割
-   *     5: リボ
+   *     3: ボーナス一括
+   *     4: ボーナス分割
+   *     5: リボ
    *
    * Pay times (支払回数)
    * --PayTimes integer(2) conditional null.
    *
-   * Card number (カード番号)
+   * Card number (カード番号)
    * --CardNo string(16) not null.
    *
    * Expiration date (有効期限)
@@ -696,7 +696,7 @@ class ShopApi extends Api {
    *
    *   Format: YYMM
    *
-   * Security code (セキュリティーコード)
+   * Security code (セキュリティーコード)
    * --SecurityCode string(4) null.
    *
    * Client field 1 (加盟店自由項目 1)
@@ -714,10 +714,10 @@ class ShopApi extends Api {
    * --ACS string(1)
    *   0: ACS call unnecessary(ACS 呼出不要)
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27)
    *
-   * Forward (仕向先コード)
+   * Forward (仕向先コード)
    * --Forward string(7)
    *
    * Method (支払方法)
@@ -729,7 +729,7 @@ class ShopApi extends Api {
    * Approve (承認番号)
    * --Approve string(7)
    *
-   * Transcation ID (トランザクション ID)
+   * Transcation ID (トランザクション ID)
    * --TransactionId string(28)
    *
    * Transcation date (決済日付)
@@ -739,7 +739,7 @@ class ShopApi extends Api {
    * Check string (MD5 ハッシュ)
    * --CheckString string(32)
    *   MD5 hash of OrderID ~ TranDate + shop password
-   *   OrderID~TranDate+ショップパスワー ドの MD5 ハッシュ
+   *   OrderID~TranDate+ショップパスワー ドの MD5 ハッシュ
    *
    * Client field 1 (加盟店自由項目 1)
    * --ClientField1 string(100)
@@ -790,13 +790,13 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32)
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32)
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
-   * Convenience (支払先コンビニコード)
+   * Convenience (支払先コンビニコード)
    * --Convenience string(5) not null.
    *
    * Customer name (氏名)
@@ -804,7 +804,7 @@ class ShopApi extends Api {
    *
    *   If you specify a Seven-Eleven, half corner symbol can not be used.
    *
-   * Customer kana (フリガナ)
+   * Customer kana (フリガナ)
    * --CustomerKana string(40) not null.
    *
    * Telephone number (電話番号)
@@ -813,10 +813,10 @@ class ShopApi extends Api {
    * Payment deadline dates (支払期限日数)
    * --PaymentTermDay integer(2) null.
    *
-   * Mail address (結果通知先メールアドレス)
+   * Mail address (結果通知先メールアドレス)
    * --MailAddress string(256) null.
    *
-   * Shop mail address (加盟店メールアドレス)
+   * Shop mail address (加盟店メールアドレス)
    * --ShopMailAddress string(256) null.
    *
    * Reserve number (予約番号)
@@ -829,28 +829,28 @@ class ShopApi extends Api {
    *
    *   It is displayed on the Loppi · Fami voucher receipt.
    *
-   * Register display item 1 (POS レジ表示欄 1)
+   * Register display item 1 (POS レジ表示欄 1)
    * --RegisterDisp1 string(32) null.
    *
-   * Register display item 2 (POS レジ表示欄 2)
+   * Register display item 2 (POS レジ表示欄 2)
    * --RegisterDisp2 string(32) null.
    *
-   * Register display item 3 (POS レジ表示欄 3)
+   * Register display item 3 (POS レジ表示欄 3)
    * --RegisterDisp3 string(32) null.
    *
-   * Register display item 4 (POS レジ表示欄 4)
+   * Register display item 4 (POS レジ表示欄 4)
    * --RegisterDisp4 string(32) null.
    *
-   * Register display item 5 (POS レジ表示欄 5)
+   * Register display item 5 (POS レジ表示欄 5)
    * --RegisterDisp5 string(32) null.
    *
-   * Register display item 6 (POS レジ表示欄 6)
+   * Register display item 6 (POS レジ表示欄 6)
    * --RegisterDisp6 string(32) null.
    *
-   * Register display item 7 (POS レジ表示欄 7)
+   * Register display item 7 (POS レジ表示欄 7)
    * --RegisterDisp7 string(32) null.
    *
-   * Register display item 8 (POS レジ表示欄 8)
+   * Register display item 8 (POS レジ表示欄 8)
    * --RegisterDisp8 string(32) null.
    *
    * Receipts disp item 1 (レシート表示欄 1)
@@ -907,7 +907,7 @@ class ShopApi extends Api {
    * Client field 3 (加盟店自由項目 3)
    * --ClientField3 string(100) null.
    *
-   * Client field flag (加盟店自由項目返却フラグ)
+   * Client field flag (加盟店自由項目返却フラグ)
    * --ClientFieldFlag string(1) null.
    *
    *   Allowed values:
@@ -916,10 +916,10 @@ class ShopApi extends Api {
    *
    * @Output parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27)
    *
-   * Convenience (支払先コンビニ)
+   * Convenience (支払先コンビニ)
    * --Convenience string(5)
    *
    * Confirm number (確認番号)
@@ -939,7 +939,7 @@ class ShopApi extends Api {
    * Check string (MD5 ハッシュ)
    * --CheckString string(32)
    *   MD5 hash of OrderID ~ TranDate + shop password
-   *   OrderID~TranDate+ショップパスワー ドの MD5 ハッシュ
+   *   OrderID~TranDate+ショップパスワー ドの MD5 ハッシュ
    *
    * Client field 1 (加盟店自由項目 1)
    * --ClientField1 string(100)
@@ -980,10 +980,10 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32)
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32)
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Client field 1 (加盟店自由項目 1)
@@ -995,10 +995,10 @@ class ShopApi extends Api {
    * Client field 3 (加盟店自由項目 3)
    * --ClientField3 string(100) null.
    *
-   * Docomo disp item 1 (ドコモ表示項目 1)
+   * Docomo disp item 1 (ドコモ表示項目 1)
    * --DocomoDisp1 string(40) null.
    *
-   * Docomo disp item 2 (ドコモ表示項目 2)
+   * Docomo disp item 2 (ドコモ表示項目 2)
    * --DocomoDisp2 string(40) null.
    *
    * Settlement result back URL (決済結果戻し URL)
@@ -1014,9 +1014,9 @@ class ShopApi extends Api {
    *   you call the [payment procedure completion IF].
    *   Up to 86,400 seconds (1 day)
    *   If the call parameter is empty, it is processed in 120 seconds
-   *   お客様が【決済実行】から【支払手続き完了 IF】を呼び出すまでの期限。
+   *   お客様が【決済実行】から【支払手続き完了 IF】を呼び出すまでの期限。
    *   最大 86,400 秒(1 日)
-   *   呼出パラメータが空の場合、120 秒で処理される
+   *   呼出パラメータが空の場合、120 秒で処理される
    *
    * Display shop name (利用店舗名)
    * --DispShopName string(50) not null.
@@ -1024,7 +1024,7 @@ class ShopApi extends Api {
    * Display phone number (連絡先電話番号)
    * --DispPhoneNumber string(13) not null.
    *
-   * Display mail address (メールアドレス)
+   * Display mail address (メールアドレス)
    * --DispMailAddress string(100) not null.
    *
    * @Output parameters
@@ -1061,10 +1061,10 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32) not null.
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32) not null.
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Client field 1 (加盟店自由項目 1)
@@ -1076,10 +1076,10 @@ class ShopApi extends Api {
    * Client field 3 (加盟店自由項目 3)
    * --ClientField3 string(100) null.
    *
-   * Docomo Display 1 (ドコモ表示項目 1)
+   * Docomo Display 1 (ドコモ表示項目 1)
    * --DocomoDisp1 string(40) null.
    *
-   * Docomo Display 2 (ドコモ表示項目 2)
+   * Docomo Display 2 (ドコモ表示項目 2)
    * --DocomoDisp2 string(40) null.
    *
    * Ret URL (決済結果戻し URL)
@@ -1111,7 +1111,7 @@ class ShopApi extends Api {
    * Display phone number (連絡先電話番号)
    * --DispPhoneNumber string(13) null.
    *
-   * Display mail address (メールアドレス)
+   * Display mail address (メールアドレス)
    * --DispMailAddress string(100) null.
    *
    * @Output parameters
@@ -1153,16 +1153,16 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32) not null.
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32) not null.
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
-   * Mail address (メールアドレス)
+   * Mail address (メールアドレス)
    * --MailAddress string(256) null.
    *
-   * Shop mail address (加盟店メールアドレス)
+   * Shop mail address (加盟店メールアドレス)
    * --ShopMailAddress string(256) null.
    *
    * Settlement start mail additional information (決済開始メール付加情報)
@@ -1186,7 +1186,7 @@ class ShopApi extends Api {
    * Client field 3 (加盟店自由項目 3)
    * --ClientField3 string(100) null.
    *
-   * Client field flag (加盟店自由項目返却フラグ)
+   * Client field flag (加盟店自由項目返却フラグ)
    * --ClientFieldFlag string(1) null.
    *
    *   Allowed values:
@@ -1195,7 +1195,7 @@ class ShopApi extends Api {
    *
    * @Output parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27)
    *
    * Receipt number (受付番号)
@@ -1215,7 +1215,7 @@ class ShopApi extends Api {
    * Check string (MD5 ハッシュ)
    * --CheckString string(32)
    *   MD5 hash of OrderID ~ TranDate + shop password
-   *   OrderID~TranDate+ショップパスワー ドの MD5 ハッシュ
+   *   OrderID~TranDate+ショップパスワー ドの MD5 ハッシュ
    *
    * Client field 1 (加盟店自由項目 1)
    * --ClientField1 string(100)
@@ -1246,19 +1246,19 @@ class ShopApi extends Api {
    *
    * @Input parameters
    *
-   * Version (バージョン)
+   * Version (バージョン)
    * --Version string(3) null.
    *
    * Access ID (取引 ID)
    * --AccessID string(32) not null.
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32) not null.
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
-   * Card number (カード番号)
+   * Card number (カード番号)
    * --CardNo string(32) not null.
    *
    * Approval number (認証番号)
@@ -1278,7 +1278,7 @@ class ShopApi extends Api {
    *
    * @Output parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27)
    *
    * Status (現状態)
@@ -1298,17 +1298,17 @@ class ShopApi extends Api {
    * After balance (利用後残高)
    * --AfterBalance integer(5)
    *
-   * Card activate status (カードアクティベートステータス)
+   * Card activate status (カードアクティベートステータス)
    * --CardActivateStatus string(1)
    *   One of the flowing:
    *     0: deactivate
    *     1: Activate
    *     2: first use (it has been activation shot with our trading)
-   *     0: 非アクティベート
-   *     1: アクティベート
-   *     2: 初回利用(当取引でアクティベートされた)
+   *     0: 非アクティベート
+   *     1: アクティベート
+   *     2: 初回利用(当取引でアクティベートされた)
    *
-   * Card term status (カード有効期限ステータス)
+   * Card term status (カード有効期限ステータス)
    * --CardTermStatus string(1)
    *   One of the flowing:
    *     0: expiration date
@@ -1318,7 +1318,7 @@ class ShopApi extends Api {
    *     1: 有効期限切れ
    *     2: 利用開始前
    *
-   * Card invalid status (カード有効ステータス)
+   * Card invalid status (カード有効ステータス)
    * --CardInvalidStatus string(1)
    *   One of the flowing:
    *     0: Valid
@@ -1326,7 +1326,7 @@ class ShopApi extends Api {
    *     0: 有効
    *     1: 無効
    *
-   * Card web inquiry status (カード WEB 参照ステータス)
+   * Card web inquiry status (カード WEB 参照ステータス)
    * --CardWebInquiryStatus string(1)
    *   One of the flowing:
    *     0: WEB query Allowed
@@ -1334,11 +1334,11 @@ class ShopApi extends Api {
    *     0: WEB 照会可
    *     1: WEB 照会不可
    *
-   * Card valid limit (カード有効期限)
+   * Card valid limit (カード有効期限)
    * --CardValidLimit string(8)
    *   Format: YYYYMMDD
    *
-   * Card type code (券種コード)
+   * Card type code (券種コード)
    * --CardTypeCode string(4)
    */
   public function execTranJcbPreca($access_id, $access_pass, $order_id, $card_no, $approval_no, $data = array()) {
@@ -1361,10 +1361,10 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32) not null.
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32) not null.
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Client field 1 (加盟店自由項目 1)
@@ -1424,10 +1424,10 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32) not null.
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32) not null.
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Customer name (氏名)
@@ -1435,7 +1435,7 @@ class ShopApi extends Api {
    *
    *   If you specify a Seven-Eleven, half corner symbol can not be used.
    *
-   * Customer kana (フリガナ)
+   * Customer kana (フリガナ)
    * --CustomerKana string(40) not null.
    *
    * Telephone number (電話番号)
@@ -1444,10 +1444,10 @@ class ShopApi extends Api {
    * Payment deadline dates (支払期限日数)
    * --PaymentTermDay integer(2) null.
    *
-   * Mail address (結果通知先メールアドレス)
+   * Mail address (結果通知先メールアドレス)
    * --MailAddress string(256) null.
    *
-   * Shop mail address (加盟店メールアドレス)
+   * Shop mail address (加盟店メールアドレス)
    * --ShopMailAddress string(256) null.
    *
    * Register display item 1 (ATM 表示欄 1)
@@ -1528,7 +1528,7 @@ class ShopApi extends Api {
    * Client field 3 (加盟店自由項目 3)
    * --ClientField3 string(100) null.
    *
-   * Client field flag (加盟店自由項目返却フラグ)
+   * Client field flag (加盟店自由項目返却フラグ)
    * --ClientFieldFlag string(1) null.
    *
    *   Allowed values:
@@ -1537,7 +1537,7 @@ class ShopApi extends Api {
    *
    * @Output parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27)
    *
    * Customer number (お客様番号)
@@ -1563,7 +1563,7 @@ class ShopApi extends Api {
    * Check string (MD5 ハッシュ)
    * --CheckString string(32)
    *   MD5 hash of OrderID ~ TranDate + shop password
-   *   OrderID~TranDate+ショップパスワー ドの MD5 ハッシュ
+   *   OrderID~TranDate+ショップパスワー ドの MD5 ハッシュ
    *
    * Client field 1 (加盟店自由項目 1)
    * --ClientField1 string(100)
@@ -1599,16 +1599,16 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32) not null.
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32) not null.
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
-   * Item name (商品・サービス名)
+   * Item name (商品・サービス名)
    * --ItemName string(64) not null.
    *
-   * Redirect URL (リダイレクト URL)
+   * Redirect URL (リダイレクト URL)
    * --RedirectURL string(200) not null.
    *
    * Client field 1 (加盟店自由項目 1)
@@ -1620,7 +1620,7 @@ class ShopApi extends Api {
    * Client field 3 (加盟店自由項目 3)
    * --ClientField3 string(100) null.
    *
-   * Client field flag (加盟店自由項目返却フラグ)
+   * Client field flag (加盟店自由項目返却フラグ)
    * --ClientFieldFlag string(1) null.
    *
    *   Allowed values:
@@ -1629,7 +1629,7 @@ class ShopApi extends Api {
    *
    * @Output parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27)
    *
    * Client field 1 (加盟店自由項目 1)
@@ -1664,10 +1664,10 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32) not null.
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32) not null.
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Client field 1 (加盟店自由項目 1)
@@ -1724,19 +1724,19 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32) not null.
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32) not null.
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
-   * Item name (商品・サービス名)
+   * Item name (商品・サービス名)
    * --ItemName string(40) not null.
    *
-   * Mail address (メールアドレス)
+   * Mail address (メールアドレス)
    * --MailAddress string(256) not null.
    *
-   * Shop mail address (加盟店メールアドレス)
+   * Shop mail address (加盟店メールアドレス)
    * --ShopMailAddress string(256) null.
    *
    * Settlement start mail additional information (決済開始メール付加情報)
@@ -1769,7 +1769,7 @@ class ShopApi extends Api {
    * Client field 3 (加盟店自由項目 3)
    * --ClientField3 string(100) null.
    *
-   * Client field flag (加盟店自由項目返却フラグ)
+   * Client field flag (加盟店自由項目返却フラグ)
    * --ClientFieldFlag string(1) null.
    *
    *   Allowed values:
@@ -1778,7 +1778,7 @@ class ShopApi extends Api {
    *
    * @Output parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27)
    *
    * Suica order number (Suica 注文番号)
@@ -1798,7 +1798,7 @@ class ShopApi extends Api {
    * Check string (MD5 ハッシュ)
    * --CheckString string(32)
    *   MD5 hash of OrderID ~ TranDate + shop password
-   *   OrderID~TranDate+ショップパスワー ドの MD5 ハッシュ
+   *   OrderID~TranDate+ショップパスワー ドの MD5 ハッシュ
    *
    * Client field 1 (加盟店自由項目 1)
    * --ClientField1 string(100)
@@ -1833,28 +1833,28 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32) not null.
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32) not null.
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
-   * Item name (商品・サービス名)
+   * Item name (商品・サービス名)
    * --ItemName string(40) not null.
    *
    * Customer name (氏名)
    * --CustomerName string(40) not null.
    *
-   * Mail address (メールアドレス)
+   * Mail address (メールアドレス)
    * --MailAddress string(256) null.
    *
-   * Shop mail address (加盟店メールアドレス)
+   * Shop mail address (加盟店メールアドレス)
    * --ShopMailAddress string(256) null.
    *
    * Payment deadline dates (支払期限日数)
    * --PaymentTermDay integer(2) null.
    *
-   * Redirect URL (リダイレクト URL)
+   * Redirect URL (リダイレクト URL)
    * --RedirectURL string(256) null.
    *
    * Client field 1 (加盟店自由項目 1)
@@ -1866,7 +1866,7 @@ class ShopApi extends Api {
    * Client field 3 (加盟店自由項目 3)
    * --ClientField3 string(100) null.
    *
-   * Client field flag (加盟店自由項目返却フラグ)
+   * Client field flag (加盟店自由項目返却フラグ)
    * --ClientFieldFlag string(1) null.
    *
    *   Allowed values:
@@ -1875,7 +1875,7 @@ class ShopApi extends Api {
    *
    * @Output parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27)
    *
    * Payment deadline date and time (支払期限日時)
@@ -1889,7 +1889,7 @@ class ShopApi extends Api {
    * Check string (MD5 ハッシュ)
    * --CheckString string(32)
    *   MD5 hash of OrderID ~ TranDate + shop password
-   *   OrderID~TranDate+ショップパスワー ドの MD5 ハッシュ
+   *   OrderID~TranDate+ショップパスワー ドの MD5 ハッシュ
    *
    * Client field 1 (加盟店自由項目 1)
    * --ClientField1 string(100)
@@ -1922,7 +1922,7 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32) not null.
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32) not null.
    *
    * Job cd (処理区分)
@@ -1938,16 +1938,16 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32)
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32)
    *
-   * Forward (仕向先コード)
+   * Forward (仕向先コード)
    * --Forward string(7)
    *
    * Approve (承認番号)
    * --Approve string(7)
    *
-   * Transcation ID (トランザクション ID)
+   * Transcation ID (トランザクション ID)
    * --TranID string(28)
    *
    * Transcation date (決済日付)
@@ -1974,12 +1974,12 @@ class ShopApi extends Api {
    *
    * @Input parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * @Output parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27)
    *
    * Status (現状態)
@@ -2015,10 +2015,10 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32)
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32)
    *
-   * Item code (商品コード)
+   * Item code (商品コード)
    * --ItemCode string(7)
    *
    * Amount (利用金額)
@@ -2033,7 +2033,7 @@ class ShopApi extends Api {
    * Member ID (会員 ID)
    * --MemberID string(60)
    *
-   * Card number (カード番号)
+   * Card number (カード番号)
    * --CardNo string(16)
    *
    * Expiration date (有効期限)
@@ -2044,17 +2044,17 @@ class ShopApi extends Api {
    *   One of the following
    *     1: 一括
    *     2: 分割
-   *     3: ボーナス一括
-   *     4: ボーナス分割
-   *     5: リボ
+   *     3: ボーナス一括
+   *     4: ボーナス分割
+   *     5: リボ
    *
    * Pay times (支払回数)
    * --PayTimes integer(2)
    *
-   * Forward (仕向先コード)
+   * Forward (仕向先コード)
    * --Forward string(7)
    *
-   * Transcation ID (トランザクション ID)
+   * Transcation ID (トランザクション ID)
    * --TranID string(28)
    *
    * Approve (承認番号)
@@ -2079,27 +2079,27 @@ class ShopApi extends Api {
    *
    * @Input parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Pay type (決済方法)
    * --PayType string(2) not null.
    *
    *   Allowed values:
-   *     0: クレジット
-   *     1: モバイル Suica
+   *     0: クレジット
+   *     1: モバイル Suica
    *     2: 楽天 Edy
-   *     3: コンビニ
+   *     3: コンビニ
    *     4: Pay-easy
    *     5: PayPal
    *     7: WebMoney
    *     8: au かんたん
-   *     9: ドコモケータイ払い
-   *     10: ドコモ継続課金
-   *     11: ソフトバンクまとめて支払い(B)
-   *     12: じぶん銀行
+   *     9: ドコモケータイ払い
+   *     10: ドコモ継続課金
+   *     11: ソフトバンクまとめて支払い(B)
+   *     12: じぶん銀行
    *     13: au かんたん継続課金
-   *     14: NET CASH・nanaco ギフト決済
+   *     14: NET CASH・nanaco ギフト決済
    *
    * @Output parameters
    *
@@ -2136,10 +2136,10 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32)
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32)
    *
-   * Item code (商品コード)
+   * Item code (商品コード)
    * --ItemCode string(7)
    *
    * Amount (利用金額)
@@ -2154,7 +2154,7 @@ class ShopApi extends Api {
    * Member ID (会員 ID)
    * --MemberID string(60)
    *
-   * Card number (カード番号)
+   * Card number (カード番号)
    * --CardNo string(16)
    *
    * Expiration date (有効期限)
@@ -2165,17 +2165,17 @@ class ShopApi extends Api {
    *   One of the following
    *     1: 一括
    *     2: 分割
-   *     3: ボーナス一括
-   *     4: ボーナス分割
-   *     5: リボ
+   *     3: ボーナス一括
+   *     4: ボーナス分割
+   *     5: リボ
    *
    * Pay times (支払回数)
    * --PayTimes integer(2)
    *
-   * Forward (仕向先コード)
+   * Forward (仕向先コード)
    * --Forward string(7)
    *
-   * Transcation ID (トランザクション ID)
+   * Transcation ID (トランザクション ID)
    * --TranID string(28)
    *
    * Approve (承認番号)
@@ -2206,10 +2206,10 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32) not null.
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32) not null.
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Cancel amount (キャンセル金額)
@@ -2220,7 +2220,7 @@ class ShopApi extends Api {
    *
    * @Output parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27)
    *
    * Status (現状態)
@@ -2261,15 +2261,15 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32) not null.
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32) not null.
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * @Output parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27)
    *
    * Status (現状態)
@@ -2294,10 +2294,10 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32) not null.
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32) not null.
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Cancel amount (キャンセル金額)
@@ -2313,7 +2313,7 @@ class ShopApi extends Api {
    *
    * @Output parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27)
    *
    * Continuance month (課金月)
@@ -2362,10 +2362,10 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32) not null.
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32) not null.
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Amount (利用金額)
@@ -2376,7 +2376,7 @@ class ShopApi extends Api {
    *
    * @Output parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27)
    *
    * Status (現状態)
@@ -2412,18 +2412,18 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32) not null.
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32) not null.
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * @Output parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27)
    *
-   * Transaction ID (トランザクション ID)
+   * Transaction ID (トランザクション ID)
    * --TranID string(19)
    *
    * Transaction date (処理日時)
@@ -2450,10 +2450,10 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32) not null.
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32) not null.
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Amount (利用金額)
@@ -2464,10 +2464,10 @@ class ShopApi extends Api {
    *
    * @Output parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27)
    *
-   * Transaction ID (トランザクション ID)
+   * Transaction ID (トランザクション ID)
    * --TranID string(19)
    *
    * Transaction date (処理日時)
@@ -2496,7 +2496,7 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32) not null.
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32) not null.
    *
    * Job Cd (処理区分)
@@ -2523,16 +2523,16 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32)
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32)
    *
-   * Forward (仕向先コード)
+   * Forward (仕向先コード)
    * --Forward string(7)
    *
    * Approve (承認番号)
    * --Approve string(7)
    *
-   * Transaction ID (トランザクション ID)
+   * Transaction ID (トランザクション ID)
    * --TranID string(28)
    *
    * Transaction date (処理日時)
@@ -2558,10 +2558,10 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32) not null.
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32) not null.
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Cancel amount (キャンセル金額)
@@ -2572,7 +2572,7 @@ class ShopApi extends Api {
    *
    * @Output parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27)
    *
    * Status (現状態)
@@ -2612,10 +2612,10 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32) not null.
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32) not null.
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Cancel amount (キャンセル金額)
@@ -2631,7 +2631,7 @@ class ShopApi extends Api {
    *
    * @Output parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27)
    *
    * Status (現状態)
@@ -2671,10 +2671,10 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32) not null.
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32) not null.
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Amount (利用金額)
@@ -2685,7 +2685,7 @@ class ShopApi extends Api {
    *
    * @Output parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27)
    *
    * Status (現状態)
@@ -2718,10 +2718,10 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32) not null.
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32) not null.
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Amount (利用金額)
@@ -2732,7 +2732,7 @@ class ShopApi extends Api {
    *
    * @Output parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27)
    *
    * Status (現状態)
@@ -2765,10 +2765,10 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32) not null.
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32) not null.
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Amount (利用金額)
@@ -2788,7 +2788,7 @@ class ShopApi extends Api {
    *
    * @Output parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27)
    *
    * Status (現状態)
@@ -2822,10 +2822,10 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32) not null.
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32) not null.
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Amount (利用金額)
@@ -2834,10 +2834,10 @@ class ShopApi extends Api {
    * Tax (税送料)
    * --Tax integer(6) null.
    *
-   * Docomo display item 1 (ドコモ表示項目 1)
+   * Docomo display item 1 (ドコモ表示項目 1)
    * --DocomoDisp1 string(40) null.
    *
-   * Docomo display item 2 (ドコモ表示項目 2)
+   * Docomo display item 2 (ドコモ表示項目 2)
    * --DocomoDisp2 string(40) null.
    *
    * Settlement result back URL (決済結果戻し URL)
@@ -2850,9 +2850,9 @@ class ShopApi extends Api {
    *   operations and to send the results to the specified URL when you run
    *   the settlement process in this service via a redirect.
    *
-   *   加盟店様が本サービスからの決済結果を受信する為の結果受信 URL を設定。
-   *   KDDI センター上でお客様が認証、支払操作をキャンセルした場合や、
-   *   本サービスにて決済処理を実行した場合に指定された URL に結果をリダイレクト経由で送信。
+   *   加盟店様が本サービスからの決済結果を受信する為の結果受信 URL を設定。
+   *   KDDI センター上でお客様が認証、支払操作をキャンセルした場合や、
+   *   本サービスにて決済処理を実行した場合に指定された URL に結果をリダイレクト経由で送信。
    *
    * Payment start date in seconds (支払開始期限秒)
    * --PaymentTermSec integer(5) null.
@@ -2861,9 +2861,9 @@ class ShopApi extends Api {
    *   you call the [payment procedure completion IF].
    *   Up to 86,400 seconds (1 day)
    *   If the call parameter is empty, it is processed in 120 seconds
-   *   お客様が【決済実行】から【支払手続き完了 IF】を呼び出すまでの期限。
+   *   お客様が【決済実行】から【支払手続き完了 IF】を呼び出すまでの期限。
    *   最大 86,400 秒(1 日)
-   *   呼出パラメータが空の場合、120 秒で処理される
+   *   呼出パラメータが空の場合、120 秒で処理される
    *
    * @Output parameters
    *
@@ -2900,10 +2900,10 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32) not null.
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32) not null.
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Amount (利用金額)
@@ -2912,10 +2912,10 @@ class ShopApi extends Api {
    * Tax (税送料)
    * --Tax integer(6) null.
    *
-   * Docomo display item 1 (ドコモ表示項目 1)
+   * Docomo display item 1 (ドコモ表示項目 1)
    * --DocomoDisp1 string(40) null.
    *
-   * Docomo display item 2 (ドコモ表示項目 2)
+   * Docomo display item 2 (ドコモ表示項目 2)
    * --DocomoDisp2 string(40) null.
    *
    * Settlement result back URL (決済結果戻し URL)
@@ -2927,9 +2927,9 @@ class ShopApi extends Api {
    *   operations and to send the results to the specified URL when you run
    *   the settlement process in this service via a redirect.
    *
-   *   加盟店様が本サービスからの決済結果を受信する為の結果受信 URL を設定。
-   *   KDDI センター上でお客様が認証、支払操作をキャンセルした場合や、
-   *   本サービスにて決済処理を実行した場合に指定された URL に結果をリダイレクト経由で送信。
+   *   加盟店様が本サービスからの決済結果を受信する為の結果受信 URL を設定。
+   *   KDDI センター上でお客様が認証、支払操作をキャンセルした場合や、
+   *   本サービスにて決済処理を実行した場合に指定された URL に結果をリダイレクト経由で送信。
    *
    * Payment start date in seconds (支払開始期限秒)
    * --PaymentTermSec integer(5) null.
@@ -2938,9 +2938,9 @@ class ShopApi extends Api {
    *   you call the [payment procedure completion IF].
    *   Up to 86,400 seconds (1 day)
    *   If the call parameter is empty, it is processed in 120 seconds
-   *   お客様が【決済実行】から【支払手続き完了 IF】を呼び出すまでの期限。
+   *   お客様が【決済実行】から【支払手続き完了 IF】を呼び出すまでの期限。
    *   最大 86,400 秒(1 日)
-   *   呼出パラメータが空の場合、120 秒で処理される
+   *   呼出パラメータが空の場合、120 秒で処理される
    *
    * Last month free flag (終了月無料区分)
    * --LastMonthFreeFlag string(1) not null.
@@ -2990,10 +2990,10 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32) not null.
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32) not null.
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Amount (利用金額)
@@ -3004,7 +3004,7 @@ class ShopApi extends Api {
    *
    * @Output parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27)
    *
    * Status (現状態)
@@ -3037,10 +3037,10 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32) not null.
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32) not null.
    *
-   * Card number (カード番号)
+   * Card number (カード番号)
    * --CardNo string(32) not null.
    *
    * Approval number (認証番号)
@@ -3048,7 +3048,7 @@ class ShopApi extends Api {
    *
    * @Output parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27)
    *
    * Status (現状態)
@@ -3081,15 +3081,15 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32) not null.
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32) not null.
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * @Output parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27)
    *
    * Status (現状態)
@@ -3117,10 +3117,10 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32) not null.
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32) not null.
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Amount (利用金額)
@@ -3131,10 +3131,10 @@ class ShopApi extends Api {
    *
    * @Output parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27)
    *
-   * Transaction ID (トランザクション ID)
+   * Transaction ID (トランザクション ID)
    * --TranID string(19)
    *
    * Transaction date (処理日時)
@@ -3173,10 +3173,10 @@ class ShopApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32) not null.
    *
-   * Access pass (取引パスワード)
+   * Access pass (取引パスワード)
    * --AccessPass string(32) not null.
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Cancel amount (キャンセル金額)
@@ -3187,7 +3187,7 @@ class ShopApi extends Api {
    *
    * @Output parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27)
    *
    * Status (現状態)
@@ -3225,10 +3225,10 @@ class ShopApi extends Api {
    *
    * @Output parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27)
    *
-   * Forward (仕向先コード)
+   * Forward (仕向先コード)
    * --Forward string(7)
    *
    * Method (支払方法)
@@ -3240,7 +3240,7 @@ class ShopApi extends Api {
    * Approve (承認番号)
    * --Approve string(7)
    *
-   * Transcation ID (トランザクション ID)
+   * Transcation ID (トランザクション ID)
    * --TransactionId string(28)
    *
    * Transcation date (決済日付)
@@ -3250,7 +3250,7 @@ class ShopApi extends Api {
    * Check string (MD5 ハッシュ)
    * --CheckString string(32)
    *   MD5 hash of OrderID ~ TranDate + shop password
-   *   OrderID~TranDate+ショップパスワー ドの MD5 ハッシュ
+   *   OrderID~TranDate+ショップパスワー ドの MD5 ハッシュ
    *
    * Client field 1 (加盟店自由項目 1)
    * --ClientField1 string(100)

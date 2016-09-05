@@ -10,16 +10,16 @@ namespace GMO\Payment;
 /**
  * Shop and Site API of GMO Payment.
  *
- * Shop ID (ショップ ID)
+ * Shop ID (ショップ ID)
  * --ShopID string(13) not null.
  *
- * Shop password (ショップパスワード)
+ * Shop password (ショップパスワード)
  * --ShopPass string(10) not null.
  *
  * Site ID (サイト ID)
  * --SiteID string(13) not null.
  *
- * Site password (サイトパスワード)
+ * Site password (サイトパスワード)
  * --SitePass string(20) not null.
  *
  * $data = array('key' => 'value', ...)
@@ -47,20 +47,20 @@ class ShopAndSiteApi extends Api {
    *
    * @Input parameters
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Member ID (会員 ID)
    * --MemberID string(60) not null.
    *
-   * Card registration serial number mode (カード登録連番モード)
+   * Card registration serial number mode (カード登録連番モード)
    * --SeqMode string(1) null default 0.
    *
    *   Allowed values:
    *     0: Logical mode (default)
    *     1: Physical mode
    *
-   * Default flag (デフォルトフラグ)
+   * Default flag (デフォルトフラグ)
    * --DefaultFlag string(1) null default 0.
    *
    *   Allowed values:
@@ -72,18 +72,18 @@ class ShopAndSiteApi extends Api {
    *
    * @Output parameters
    *
-   * Card registration serial number (カード登録連番)
+   * Card registration serial number (カード登録連番)
    * --CardSeq integer(1)
    *
-   * Card number (カード番号)
+   * Card number (カード番号)
    * --CardNo string(16)
    *   Asterisk with the exception of the last four digits.
    *   下 4 桁を除いて伏字
    *
-   * Destination code (仕向先コード)
+   * Destination code (仕向先コード)
    * --Forward string(7)
    *   Destination code when performing a validity check.
-   *   有効性チェックを行ったときの仕向先 コード
+   *   有効性チェックを行ったときの仕向先 コード
    */
   public function tradedCard($order_id, $member_id, $data = array()) {
     if (!is_array($data)) {
@@ -104,10 +104,10 @@ class ShopAndSiteApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32) not null.
    *
-   * Access Pass (取引パスワード)
+   * Access Pass (取引パスワード)
    * --AccessPass string(32) not null.
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Member ID (会員 ID)
@@ -118,7 +118,7 @@ class ShopAndSiteApi extends Api {
    * Member Name (会員名)
    * --MemberName string(255) null.
    *
-   * Members create flag (会員作成フラグ)
+   * Members create flag (会員作成フラグ)
    * --CreateMember string(1) conditional null.
    *
    *   It will specify the operation when the member does not exist.
@@ -141,7 +141,7 @@ class ShopAndSiteApi extends Api {
    *   Set the information of the products that customers buy.
    *   And that is displayed at the time of the settlement in the KDDI center.
    *   Possible characters are next to "double-byte characters".
-   *   お客様が購入する商品の情報を設定。KDDI センターでの決済時に表示される。
+   *   お客様が購入する商品の情報を設定。KDDI センターでの決済時に表示される。
    *   設定可能な文字は「全角文字」となります。全角文字についての詳細は、「別 紙:制限事項一覧」を参照下さい。
    *
    * Settlement result back URL (決済結果戻し URL)
@@ -154,9 +154,9 @@ class ShopAndSiteApi extends Api {
    *   operations and to send the results to the specified URL when you run
    *   the settlement process in this service via a redirect.
    *
-   *   加盟店様が本サービスからの決済結果を受信する為の結果受信 URL を設定。
-   *   KDDI センター上でお客様が認証、支払操作をキャンセルした場合や、
-   *   本サービスにて決済処理を実行した場合に指定された URL に結果をリダイレクト経由で送信。
+   *   加盟店様が本サービスからの決済結果を受信する為の結果受信 URL を設定。
+   *   KDDI センター上でお客様が認証、支払操作をキャンセルした場合や、
+   *   本サービスにて決済処理を実行した場合に指定された URL に結果をリダイレクト経由で送信。
    *
    * Payment start date in seconds (支払開始期限秒)
    * --PaymentTermSec integer(5) null.
@@ -165,16 +165,16 @@ class ShopAndSiteApi extends Api {
    *   you call the [payment procedure completion IF].
    *   Up to 86,400 seconds (1 day)
    *   If the call parameter is empty, it is processed in 120 seconds
-   *   お客様が【決済実行】から【支払手続き完了 IF】を呼び出すまでの期限。
+   *   お客様が【決済実行】から【支払手続き完了 IF】を呼び出すまでの期限。
    *   最大 86,400 秒(1 日)
-   *   呼出パラメータが空の場合、120 秒で処理される
+   *   呼出パラメータが空の場合、120 秒で処理される
    *
-   * Service Name (表示サービス名)
+   * Service Name (表示サービス名)
    * --ServiceName string(48) not null.
    *
    *   Service names of merchants. Displayed on your purchase history.
    *   Possible characters are next to "double-byte characters".
-   *   加盟店様のサービス名称。お客様の購入履歴などに表示される。
+   *   加盟店様のサービス名称。お客様の購入履歴などに表示される。
    *   設定可能な文字は「全角文字」となります。
    *
    * Service Tel (表示電話番号)
@@ -182,7 +182,7 @@ class ShopAndSiteApi extends Api {
    *
    *   Telephone number of merchants. Displayed on your purchase history.
    *   Possible characters are "single-byte numbers" - "(hyphen)".
-   *   加盟店様の電話番号。お客様の購入履歴などに表示される。
+   *   加盟店様の電話番号。お客様の購入履歴などに表示される。
    *   設定可能な文字は「半角数字と”-“(ハイフン)」となります。
    *
    * @Output parameters
@@ -224,10 +224,10 @@ class ShopAndSiteApi extends Api {
    * Access ID (取引 ID)
    * --AccessID string(32) not null.
    *
-   * Access Pass (取引パスワード)
+   * Access Pass (取引パスワード)
    * --AccessPass string(32) not null.
    *
-   * Order ID (オーダーID)
+   * Order ID (オーダーID)
    * --OrderID string(27) not null.
    *
    * Member ID (会員 ID)
@@ -238,7 +238,7 @@ class ShopAndSiteApi extends Api {
    * Member Name (会員名)
    * --MemberName string(255) null.
    *
-   * Members create flag (会員作成フラグ)
+   * Members create flag (会員作成フラグ)
    * --CreateMember string(1) conditional null.
    *
    *   It will specify the operation when the member does not exist.
@@ -261,22 +261,22 @@ class ShopAndSiteApi extends Api {
    *   Description of the end user can recognize the continued billing,
    *   and I will specify the timing of billing.
    *   Possible characters are next to "double-byte characters".
-   *   エンドユーザが継続課金を認識できる説明、および課金のタイミングを明記します。
+   *   エンドユーザが継続課金を認識できる説明、および課金のタイミングを明記します。
    *   設定可能な文字は「全角文字」となります。
    *
-   * Billing timing classification (課金タイミング区分)
+   * Billing timing classification (課金タイミング区分)
    * --AccountTimingKbn string(2) not null.
    *
    *   "01": specified in the accounting timing
    *   "02": the end
-   *   “01”: 課金タイミングで指定
+   *   “01”: 課金タイミングで指定
    *   “02”: 月末
    *
-   * Billing timing (課金タイミング)
+   * Billing timing (課金タイミング)
    * --AccountTiming string(2) not null.
    *
    *   Set in the 1-28. (29.30,31 can not be specified)
-   *   1~28 で設定。(29.30,31 は指定不可)
+   *   1~28 で設定。(29.30,31 は指定不可)
    *
    * First billing date (初回課金日)
    * --FirstAccountDate string(8) not null.
@@ -287,7 +287,7 @@ class ShopAndSiteApi extends Api {
    *   Maximum value example of (6 months ahead)
    *   6/17 → 12 / 17,8 / 31 → 2/28 (29)
    *
-   *   当日から 6 ヶ月先までの間の日を yyyyMMdd フォーマットで指定。
+   *   当日から 6 ヶ月先までの間の日を yyyyMMdd フォーマットで指定。
    *   最大値(6 ヶ月先)の例 6/17→12/17、8/31→2/28(29)
    *
    * Settlement result back URL (決済結果戻し URL)
@@ -300,9 +300,9 @@ class ShopAndSiteApi extends Api {
    *   operations and to send the results to the specified URL when you run
    *   the settlement process in this service via a redirect.
    *
-   *   加盟店様が本サービスからの決済結果を受信する為の結果受信 URL を設定。
-   *   KDDI センター上でお客様が認証、支払操作をキャンセルした場合や、
-   *   本サービスにて決済処理を実行した場合に指定された URL に結果をリダイレクト経由で送信。
+   *   加盟店様が本サービスからの決済結果を受信する為の結果受信 URL を設定。
+   *   KDDI センター上でお客様が認証、支払操作をキャンセルした場合や、
+   *   本サービスにて決済処理を実行した場合に指定された URL に結果をリダイレクト経由で送信。
    *
    * Payment start date in seconds (支払開始期限秒)
    * --PaymentTermSec integer(5) null.
@@ -311,16 +311,16 @@ class ShopAndSiteApi extends Api {
    *   you call the [payment procedure completion IF].
    *   Up to 86,400 seconds (1 day)
    *   If the call parameter is empty, it is processed in 120 seconds
-   *   お客様が【決済実行】から【支払手続き完了 IF】を呼び出すまでの期限。
+   *   お客様が【決済実行】から【支払手続き完了 IF】を呼び出すまでの期限。
    *   最大 86,400 秒(1 日)
-   *   呼出パラメータが空の場合、120 秒で処理される
+   *   呼出パラメータが空の場合、120 秒で処理される
    *
-   * Service Name (表示サービス名)
+   * Service Name (表示サービス名)
    * --ServiceName string(48) not null.
    *
    *   Service names of merchants. Displayed on your purchase history.
    *   Possible characters are next to "double-byte characters".
-   *   加盟店様のサービス名称。お客様の購入履歴などに表示される。
+   *   加盟店様のサービス名称。お客様の購入履歴などに表示される。
    *   設定可能な文字は「全角文字」となります。
    *
    * Service Tel (表示電話番号)
@@ -328,7 +328,7 @@ class ShopAndSiteApi extends Api {
    *
    *   Telephone number of merchants. Displayed on your purchase history.
    *   Possible characters are "single-byte numbers" - "(hyphen)".
-   *   加盟店様の電話番号。お客様の購入履歴などに表示される。
+   *   加盟店様の電話番号。お客様の購入履歴などに表示される。
    *   設定可能な文字は「半角数字と”-“(ハイフン)」となります。
    *
    * @Output parameters

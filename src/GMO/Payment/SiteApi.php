@@ -13,7 +13,7 @@ namespace GMO\Payment;
  * Site ID (サイト ID)
  * --SiteID string(13) not null.
  *
- * Site password (サイトパスワード)
+ * Site password (サイトパスワード)
  * --SitePass string(20) not null.
  *
  * $data = array('key' => 'value', ...)
@@ -101,7 +101,7 @@ class SiteApi extends Api {
    * Member Name (会員名)
    * --MemberName string
    *
-   * Delete flag (削除フラグ)
+   * Delete flag (削除フラグ)
    * --DeleteFlag string
    *   0: undeleted.
    */
@@ -141,33 +141,33 @@ class SiteApi extends Api {
    * Member ID (会員 ID)
    * --MemberID string(60) not null.
    *
-   * Card registration serial number mode (カード登録連番モード)
+   * Card registration serial number mode (カード登録連番モード)
    * --SeqMode string(1) null default 0.
    *
    *   Allowed values:
    *     0: Logical mode (default)
    *     1: Physical mode
    *
-   * Card registration serial number (カード登録連番)
+   * Card registration serial number (カード登録連番)
    * --CardSeq int(1) conditional null.
    *
    *   This filed is conditional required.
    *   Null value when create, not null when update.
    *
-   * Default flag (デフォルトフラグ)
+   * Default flag (デフォルトフラグ)
    * --DefaultFlag string(1) null default 0.
    *
    *   Allowed values:
    *     0: it is not the default card (default)
    *     1: it will be the default card
    *
-   * Card company abbreviation (カード会社略称)
+   * Card company abbreviation (カード会社略称)
    * --CardName string(10) null.
    *
-   * Card number (カード番号)
+   * Card number (カード番号)
    * --CardNo string(16) not null.
    *
-   * Card password (カードパスワード)
+   * Card password (カードパスワード)
    * --CardPass string(20) null.
    *
    *   The card password is required for settlement.
@@ -182,18 +182,18 @@ class SiteApi extends Api {
    *
    * @Output parameters.
    *
-   * Card registration serial number (カード登録連番)
+   * Card registration serial number (カード登録連番)
    * --CardSeq integer(1)
    *
-   * Card number (カード番号)
+   * Card number (カード番号)
    * --CardNo string(16)
    *   Asterisk with the exception of the last four digits.
    *   下 4 桁を除いて伏字
    *
-   * Destination code (仕向先コード)
+   * Destination code (仕向先コード)
    * --Forward string(7)
    *   Destination code when performing a validity check.
-   *   有効性チェックを行ったときの仕向先 コード
+   *   有効性チェックを行ったときの仕向先 コード
    */
   public function saveCard($member_id, $card_no, $expire, $data = array()) {
     if (!is_array($data)) {
@@ -226,30 +226,30 @@ class SiteApi extends Api {
    * Member ID (会員 ID)
    * --MemberID string(60) not null.
    *
-   * Card registration serial number mode (カード登録連番モード)
+   * Card registration serial number mode (カード登録連番モード)
    * --SeqMode string(1) not null.
    *
    *   Allowed values:
    *     0: Logical mode
    *     1: Physical mode
    *
-   * Card registration serial number (カード登録連番)
+   * Card registration serial number (カード登録連番)
    * --CardSeq int(1) null.
    *
    *   Registration serial number of the referenced card.
    *
    * @Output parameters.
    *
-   * Card registration serial number (カード登録連番)
+   * Card registration serial number (カード登録連番)
    * --CardSeq integer(1)
    *
-   * Default flag (デフォルトフラグ)
+   * Default flag (デフォルトフラグ)
    * --DefaultFlag string(1)
    *
-   * Card name (カード会社略称)
+   * Card name (カード会社略称)
    * --CardName string(10)
    *
-   * Card number (カード番号)
+   * Card number (カード番号)
    * --CardNo string(16)
    *
    * Expiration date (有効期限)
@@ -258,7 +258,7 @@ class SiteApi extends Api {
    * Holder name (名義人)
    * --HolderName string(50)
    *
-   * Delete flag (￼削除フラグ)
+   * Delete flag (￼削除フラグ)
    * --DeleteFlag string(1)
    */
   public function searchCard($member_id, $seq_mode, $data = array()) {
@@ -278,21 +278,21 @@ class SiteApi extends Api {
    * Member ID (会員 ID)
    * --MemberID string(60) not null.
    *
-   * Card registration serial number mode (カード登録連番モード)
+   * Card registration serial number mode (カード登録連番モード)
    * --SeqMode string(1) null.
    *
    *   Allowed values:
    *     0: Logical mode
    *     1: Physical mode
    *
-   * Card registration serial number (カード登録連番)
+   * Card registration serial number (カード登録連番)
    * --CardSeq int(1) not null.
    *
    *   Registration serial number of the referenced card.
    *
    * @Output parameters.
    *
-   * Card registration serial number (カード登録連番)
+   * Card registration serial number (カード登録連番)
    * --CardSeq integer(1)
    */
   public function deleteCard($member_id, $card_seq, $data = array()) {
