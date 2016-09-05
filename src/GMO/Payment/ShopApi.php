@@ -26,6 +26,11 @@ namespace GMO\Payment;
 class ShopApi extends Api {
 
   /**
+   * Site id and site pass disable flag.
+   */
+  protected $disableSiteIdAndPass = FALSE;
+
+  /**
    * Shop id and shop pass disable flag.
    */
   protected $disableShopIdAndPass = FALSE;
@@ -43,6 +48,13 @@ class ShopApi extends Api {
   }
 
   /**
+   * Disable site_id and site_pass fields which not required for some api.
+   */
+  protected function disableSiteIdAndPass() {
+    $this->disableSiteIdAndPass = TRUE;
+  }
+
+  /**
    * Disable shop_id and shop_pass fields which not required for some api.
    */
   protected function disableShopIdAndPass() {
@@ -55,6 +67,9 @@ class ShopApi extends Api {
    * Remove shop_id and shop_pass if disabled.
    */
   protected function defaultParams() {
+    if ($this->disableSiteIdAndPass === TRUE) {
+      unset($this->defaultParams['site_id'], $this->defaultParams['site_pass']);
+    }
     if ($this->disableShopIdAndPass === TRUE) {
       unset($this->defaultParams['shop_id'], $this->defaultParams['shop_pass']);
     }
