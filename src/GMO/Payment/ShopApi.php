@@ -711,6 +711,9 @@ class ShopApi extends Api {
    *
    *   Format: YYMM
    *
+   * Token (トークン決済時のトークン)
+   * --Token string(*) not null
+   *
    * Security code (セキュリティーコード)
    * --SecurityCode string(4) null.
    *
@@ -780,12 +783,10 @@ class ShopApi extends Api {
     if (!isset($data['member_id']) || 0 > strlen($data['member_id'])) {
       $this->disableSiteIdAndPass();
     }
-    // If it doesn't exist cardseq.
-    if (!isset($data['card_seq'])) {
-      // Chekc CardNo, Expire, SecurityCode exist.
-    }
-    else {
-      unset($data['card_no'], $data['expire'], $data['security_code']);
+
+    // If it doesn't exist cardseq or token.
+    if (isset($data['card_seq']) || isset($data['token'])) {
+        unset($data['card_no'], $data['expire'], $data['security_code']);
     }
 
     $this->addHttpParams();
