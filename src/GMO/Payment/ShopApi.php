@@ -776,7 +776,7 @@ class ShopApi extends Api {
     $data['access_id']   = $access_id;
     $data['access_pass'] = $access_pass;
     $data['order_id']    = $order_id;
-    if (!isset($data['method']) || $data['method'] != 2 || $data['method'] != 4) {
+    if (!isset($data['method']) || ($data['method'] != 2 && $data['method'] != 4)) {
       unset($data['pay_times']);
     }
     // If member id empty, unset site id and site pass.
@@ -1976,7 +1976,7 @@ class ShopApi extends Api {
     }
     $data['access_id']   = $access_id;
     $data['access_pass'] = $access_pass;
-    if (!isset($data['method']) || $data['method'] != 2 || $data['method'] != 4) {
+    if (!isset($data['method']) || ($data['method'] != 2 && $data['method'] != 4)) {
       unset($data['pay_times']);
     }
     return $this->callApi('alterTran', $data);
