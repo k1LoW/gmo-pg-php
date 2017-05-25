@@ -87,6 +87,7 @@ class Api {
     'execTranEdy'                   => 'ExecTranEdy.idPass',
     'entryTranCvs'                  => 'EntryTranCvs.idPass',
     'execTranCvs'                   => 'ExecTranCvs.idPass',
+    'cvsCancel'                     => 'CvsCancel.idPass',
     'entryTranPayEasy'              => 'EntryTranPayEasy.idPass',
     'execTranPayEasy'               => 'ExecTranPayEasy.idPass',
     'entryTranPaypal'               => 'EntryTranPaypal.idPass',
