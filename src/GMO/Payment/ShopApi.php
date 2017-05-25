@@ -985,6 +985,40 @@ class ShopApi extends Api {
   }
 
   /**
+   * Cancel CVS Payment.
+   * 【CvsCancel】APIを使用することで、お支払い前に支払い手続きを行えないようにすることは可能です。
+   *
+   * @Input parameters
+   *
+   * Access ID (取引 ID)
+   * --AccessID string(32)
+   *
+   * Access pass (取引パスワード)
+   * --AccessPass string(32)
+   *
+   * Order ID (オーダーID)
+   * --OrderID string(27) not null.
+   *
+   *
+   * @Output parameters
+   *
+   * Order ID (オーダーID)
+   * --OrderID string(27)
+   *
+   * Status 成功時は以下のステータスが返却されます。
+   * --Status CANCEL：支払い停止
+   */
+  public function cvsCancel($access_id, $access_pass, $order_id){
+    $data = array(
+      'access_id' => $access_id,
+      'access_pass' => $access_pass,
+      'order_id' => $order_id
+    );
+
+    return $this->callApi('cvsCancel', $data);
+  }
+
+  /**
    * Execute transcation of Docomo.
    *
    * Customers using the information of the card number and the
