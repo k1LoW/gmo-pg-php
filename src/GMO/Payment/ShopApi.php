@@ -3364,4 +3364,89 @@ class ShopApi extends Api {
     return $this->callApi('unbookSalesProcess', $data);
   }
 
+
+  /**
+   * Entry transcation of Virtualaccount.
+   *
+   * @Input parameters
+   *
+   * Order ID (オーダーID)
+   * --OrderID string(27) not null.
+   *
+   * Amount
+   * --Amount integer(8) not null.
+   *
+   * Tax
+   * --Tax Number(7) null.
+   *
+   * @Output parameters
+   *
+   * Order ID
+   * --OrderID string(27)
+   *
+   * Access ID
+   * --AccessID string(32)
+   *
+   * AccessPass
+   * --AccessPass string(32)
+   */
+  public function entryTranVirtualaccount($order_id, $amount, $tax = 0){
+    $data = array(
+      'order_id' => $order_id,
+      'amount' => $amount,
+      'tax' => $tax
+    );
+
+    return $this->callApi('entryTranVirtualaccount', $data);
+  }
+
+  /**
+   * Exec transcation of Virtualaccount.
+   *
+   * @Input parameters
+   *
+   * Version (バージョン)
+   * --Version string(3) null.
+   *
+   * Access ID (取引 ID)
+   * --AccessID string(32) not null.
+   *
+   * Access pass (取引パスワード)
+   * --AccessPass string(32) not null.
+   *
+   * Order ID (オーダーID)
+   * --OrderID string(27) not null.
+   *
+   * Trade Days
+   * --TradeDays integer(2) not null.
+   *
+   * Client field 1 (加盟店自由項目 1)
+   * --ClientField1 string(100) null.
+   *
+   * Client field 2 (加盟店自由項目 2)
+   * --ClientField2 string(100) null.
+   *
+   * Client field 3 (加盟店自由項目 3)
+   * --ClientField3 string(100) null.
+   *
+   * Trade Reason
+   * --TradeReason string(64) null.
+   *
+   * Trade Client Name
+   * --TradeClientName string(64) null.
+   *
+   * Trade Client Mailaddress
+   * --TradeClientMailaddress string(256) null.
+   **/
+  public function execTranVirtualaccount($access_id, $access_pass, $order_id, $trade_days, $data = array()){
+    if (!is_array($data)) {
+      $data = array();
+    }
+    $data['access_id']   = $access_id;
+    $data['access_pass'] = $access_pass;
+    $data['order_id']    = $order_id;
+    $data['trade_days']  = $trade_days;
+
+    return $this->callApi('execTranVirtualaccount', $data);
+  }
 }
