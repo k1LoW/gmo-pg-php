@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-31J">
+  </head>
+  <body OnLoad='OnLoadEvent();'>
+    <form name="LinepayStartCall" action="${LinepayStartURL}" method="POST">
+    <noscript>
+      <br>
+      <br>
+      <center>
+        <h2>
+          LINE Payの決済画面へ遷移します。
+        </h2>
+        <input type="submit" value="続行">
+      </center>
+      </noscript>
+      <input type="hidden" name="AccessID" value="${AccessID}">
+      <input type="hidden" name="Token" value="${Token}">
+    </form>
+    <script>
+    <!--
+      function OnLoadEvent() {
+        document.LinepayStartCall.submit();
+      }
+    //-->
+    </script>
+    </body>
+</html>
+

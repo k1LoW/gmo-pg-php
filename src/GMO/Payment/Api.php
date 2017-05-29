@@ -137,6 +137,9 @@ class Api {
     'jcbPrecaBalanceInquiry'        => 'JcbPrecaBalanceInquiry.idPass',
     'jcbPrecaCancel'                => 'JcbPrecaCancel.idPass',
     'searchTradeMulti'              => 'SearchTradeMulti.idPass',
+
+    'entryTranVirtualaccount'       => 'EntryTranVirtualaccount.idPass',
+    'execTranVirtualaccount'        => 'ExecTranVirtualaccount.idPass'
   );
 
   /**
@@ -588,6 +591,22 @@ class Api {
     'version' => array(
       'key' => 'Version',
     ),
+    'trade_days' => array(
+      'key' => 'TradeDays',
+      'max-length' => 2
+    ),
+    'trade_reason' => array(
+      'key' => 'TradeReason',
+      'max-length' => 64
+    ),
+    'trade_client_name' => array(
+      'key' => 'TradeClientName',
+      'max-length' => 64
+    ),
+    'trade_client_mailaddress' => array(
+      'key' => 'TradeClientMailaddress',
+      'max-length' => 256
+    )
   );
 
   /**
@@ -649,6 +668,9 @@ class Api {
     'TranDate'             => 'tran_date',
     'TranID'               => 'tran_id',
     'TransactionId'        => 'transaction_id',
+    'TradeDays'            => 'trade_days',
+    'TradeClientName'      => 'trade_client_name',
+    'TradeClientMailaddress'=> 'trade_client_mailaddress'
   );
 
   /**

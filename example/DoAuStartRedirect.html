@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-31J">
+  </head>
+  <body OnLoad='OnLoadEvent();'>
+    <form name="AuStart" action="${StartURL}" method="POST">
+      <noscript>
+      <br>
+      <br>
+      <center>
+        <h2>
+          auかんたん決済OpenID連携を続けます。<br>
+          ボタンをクリックしてください。
+        </h2>
+        <input type="submit" value="OK">
+      </center>
+      </noscript>
+      <input type="hidden" name="AccessID" value="${AccessID}">
+      <input type="hidden" name="Token" value="${Token}">
+
+    </form>
+    <script>
+    <!--
+      function OnLoadEvent() {
+        document.AuStart.submit();
+      }
+    //-->
+    </script>
+  </body>
+</html>
