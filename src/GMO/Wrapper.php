@@ -52,30 +52,6 @@ class Wrapper
     }
   }
 
-  public function execTran($purchase_id)
-  {
-    if (empty($purchase_id)) {
-      $response['status'] = 'false';
-      $response['data']['error'] = 'purchase id can\'t empty';
-      echo json_encode($response, JSON_PRETTY_PRINT);
-      exit();
-    }
-
-    $data['method'] = '';
-    $data['pay_times'] = '';
-    $data['token'] = '';
-    $data['pay_times'] = '';
-
-    try {
-      $response = $this->shop->execTran('access_id', 'access_pass', 'order_id', $data);
-      print_r($response);
-    } catch (exception $e) {
-      $response['status'] = 'false';
-      $response['data']['error'] = $e->getMessage();
-      echo json_encode($response, JSON_PRETTY_PRINT);
-    }
-  }
-
   public function checkDevel()
   {
     if ($this->development) {
