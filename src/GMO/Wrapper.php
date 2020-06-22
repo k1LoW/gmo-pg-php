@@ -22,7 +22,7 @@ class Wrapper
   {
     $this->shop = new ShopApi($this->host, $this->shopId, $this->shopPass);
     $this->site = new SiteApi($this->host, $this->siteId, $this->sitePass);
-    return true;
+    return;
   }
 
   public function entryTran($purchase_id)
@@ -31,14 +31,19 @@ class Wrapper
       $response['status'] = 'false';
       $response['data']['error'] = 'purchase id can\'t empty';
       echo json_encode($response, JSON_PRETTY_PRINT);
-      return false;
+      exit();
     }
 
+    $order_id = $purchase_id;
+    $job_cd = 'AUTH';
+    $amount = '';
+
+    // additional parameter
     $data['item_code'] = '';
     $data['tax'] = '';
 
     try {
-      $response = $this->shop->entryTran('', '', '', $data);
+      $response = $this->shop->entryTran($order_id, $job_cd, $amount, $data);
       print_r($response);
     } catch (exception $e) {
       $response['status'] = 'false';
@@ -53,7 +58,7 @@ class Wrapper
       $response['status'] = 'false';
       $response['data']['error'] = 'purchase id can\'t empty';
       echo json_encode($response, JSON_PRETTY_PRINT);
-      return false;
+      exit();
     }
 
     $data['method'] = '';

@@ -1,6 +1,6 @@
 {
-    "name": "k1low/gmo-pg-php",
-    "description": "GMO Payment Gateway SDK for PHP",
+    "name": "nekoding/gmo-pg-php",
+    "description": "GMO Payment Gateway SDK for PHP (with custom wrapper)",
     "license": "MIT",
     "authors": [
         {
@@ -14,7 +14,8 @@
     },
     "autoload": {
         "psr-4": {
-            "GMO\\Payment\\": "src/GMO/Payment"
+            "GMO\\Payment\\": "src/GMO/Payment",
+            "GMO\\": "src"
         }
-    } 
+    }
 }
