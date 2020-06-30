@@ -35,7 +35,8 @@ const METHOD_REVO = 5;
 /**
  * Base API of GMO Payment.
  */
-class Api {
+class Api
+{
   /**
    * Api version.
    */
@@ -139,7 +140,28 @@ class Api {
     'searchTradeMulti'              => 'SearchTradeMulti.idPass',
 
     'entryTranVirtualaccount'       => 'EntryTranVirtualaccount.idPass',
-    'execTranVirtualaccount'        => 'ExecTranVirtualaccount.idPass'
+    'execTranVirtualaccount'        => 'ExecTranVirtualaccount.idPass',
+
+    'entryTranNetcash'              => 'EntryTranNetcash.idPass',
+    'execTranNetcash'               => 'ExecTranNetcash.idPass',
+    'netcashStart'                  => 'NetCashStart.idPass',
+    'entryTranRakutenid'            => 'EntryTranRakutenId.idPass',
+    'execTranRakutenid'             => 'ExecTranRakutenId.idPass',
+    'rakutenidStart'                => 'RakutenIdStart.idPass',
+    'rakutenidSales'                  => 'RakutenIdSales.idPass',
+    'rakutenidCancel'                 => 'RakutenIdCancel.idPass',
+    'rakutenidChange'                 => 'RakutenIdChange.idPass',
+    'entryTranLinePay'              => 'EntryTranLinepay.idPass',
+    'execTranLinePay'               => 'ExecTranLinepay.idPass',
+    'lineStart'                     => 'LinepayStart.idPass',
+    'lineSales'                     => 'LinepaySales.idPass',
+    'lineCancel'                    => 'LinepayCancelReturn.idPass',
+    'entryTranNetid'                => 'EntryTranNetid.idPass',
+    'execTranNetid'                 => 'ExecTranNetid.idPass',
+    'netidStart'                    => 'NetidStart.idPass',
+    'netidSales'                    => 'SalesTranNetid.idPass',
+    'netidCancel'                   => 'CancelTranNetid.idPass',
+    'netidChange'                   => 'ChangeTranNetid.idPass'
   );
 
   /**
@@ -606,6 +628,34 @@ class Api {
     'trade_client_mailaddress' => array(
       'key' => 'TradeClientMailaddress',
       'max-length' => 256
+    ),
+    'netcash_pay_type' => array(
+      'key' => 'NetCashPayType',
+      'max-length' => 40
+    ),
+    'error_url' => array(
+      'key' => 'ErrorRcvURL',
+      'max-length'  => 2048
+    ),
+    'item_id' => array(
+      'key' => 'ItemId',
+      'max-length'  => 100
+    ),
+    'product_name' => array(
+      'key' => 'ProductName',
+      'max-length'  => '4000'
+    ),
+    'product_image_url' => array(
+      'key' => 'ProductImageUrl',
+      'max-length'  => 500
+    ),
+    'use_coupon' => array(
+      'key' => 'UseCoupon',
+      'max-length'  => 1
+    ),
+    'multi_item'  => array(
+      'key'   => 'MultiItem',
+      'max-length' => 30000
     )
   );
 
@@ -670,21 +720,54 @@ class Api {
     'TransactionId'        => 'transaction_id',
     'TradeDays'            => 'trade_days',
     'TradeClientName'      => 'trade_client_name',
-    'TradeClientMailaddress'=> 'trade_client_mailaddress'
+    'TradeClientMailaddress' => 'trade_client_mailaddress',
+    'WebMoneyManagementNo' => 'webmoney_manage_no',
+    'WebMoneySettleCode'   => 'webmoney_settle_code',
+    'AuPayInfoNo'          => 'aupay_info_no',
+    'AuPayMethod'          => 'aupay_method',
+    'AuCancelAmount'       => 'aupay_cancel_amount',
+    'AuCancelTax'          => 'aupay_cancel_tax',
+    'DocomoSettlementCode' => 'docomo_settle_code',
+    'DocomoCancelAmount'   => 'docomo_cancel_amount',
+    'DocomoCancelTax'      => 'docomo_cancel_tax',
+    'DocomoIncreaseAmount' => 'docomo_increase_amount',
+    'DocomoIncreaseTax'    => 'docomo_increase_tax',
+    'SbTrackingId'         => 'sb_tracking_id',
+    'SbCancelAmount'       => 'sb_cancel_amount',
+    'SbCancelTax'          => 'sb_cancel_tax',
+    'JibunReceiptNo'       => 'jibun_receipt_no',
+    'AccountTimingKbn'     => 'account_timing_kbn',
+    'AccountTiming'        => 'account_timing',
+    'FirstAccountDate'     => 'first_account_date',
+    'FirstAmount'          => 'first_amount',
+    'FirstTax'             => 'first_tax',
+    'AuContinueAccountId'  => 'au_continue_account',
+    'AuContinuanceErrCode' => 'au_continue_errcode',
+    'AuContinuanceErrInfo' => 'au_continue_errinfo',
+    'JcbPrecaSalesCode'    => 'jcbpreca_sales_code',
+    'RequestNo'            => 'request_no',
+    'AccountNo'            => 'account_no',
+    'CenterCode'           => 'center_code',
+    'PreviousAmount'       => 'previous_amount',
+    'PreviousTax'          => 'previous_tax',
+    'NetCashPayType'       => 'netcash_pay_type',
+    'OrderDate'            => 'order_date',
+    'CompletionDate'       => 'completion_date',
+    'Currency'             => 'currency'
   );
 
   /**
    * Verify field by condition before call api.
    */
-  public function verifyField($value, $condition) {
+  public function verifyField($value, $condition)
+  {
     $key = $condition['key'];
     // Check length.
     if (isset($condition['length'])) {
       if (strlen($value) != $condition['length']) {
         return sprintf('Field [%s] value length should be [%s].', $key, $condition['length']);
       }
-    }
-    else {
+    } else {
       if (isset($condition['min-length'])) {
         if (strlen($value) < $condition['min-length']) {
           return sprintf('Field [%s] value length should be more than [%s].', $key, $condition['min-length']);
@@ -708,8 +791,7 @@ class Api {
         if (!in_array($value, $condition['allow'])) {
           return sprintf('Field [%s] value should be one of [%s].', $key, implode(',', $condition['allow']));
         }
-      }
-      else {
+      } else {
         if (!preg_match($condition['allow'], $value)) {
           return sprintf('Field [%s] value should be match regex [%s].', $key, $condition['allow']);
         }
@@ -754,7 +836,8 @@ class Api {
   /**
    * Object constructor.
    */
-  public function __construct($host, $params = array()) {
+  public function __construct($host, $params = array())
+  {
     $this->host = trim($host, '/');
     // Set default parameters.
     if ($params && is_array($params)) {
@@ -767,14 +850,16 @@ class Api {
   /**
    * Get input parameters mapping.
    */
-  protected function getParamsMapping() {
+  protected function getParamsMapping()
+  {
     return $this->inputParamsMapping;
   }
 
   /**
    * Check required parameters exist.
    */
-  protected function paramsExist() {
+  protected function paramsExist()
+  {
     // $required = self:getRequiredParams($this->method);
     $required = array();
     $params = array();
@@ -790,7 +875,8 @@ class Api {
   /**
    * Initial post parameters, such as user, version, api info.
    */
-  protected function initParams() {
+  protected function initParams()
+  {
     $this->params = array('user' => self::GMO_USER, 'version' => self::GMO_VERSION);
     $this->defaultParams();
   }
@@ -798,7 +884,8 @@ class Api {
   /**
    * Append default parameters.
    */
-  protected function defaultParams() {
+  protected function defaultParams()
+  {
     if ($this->defaultParams) {
       $this->params = array_merge($this->params, $this->defaultParams);
     }
@@ -807,7 +894,8 @@ class Api {
   /**
    * Add new parameters.
    */
-  public function addParams($params) {
+  public function addParams($params)
+  {
     if ($params && is_array($params)) {
       $this->params = array_merge($this->params, $params);
     }
@@ -816,14 +904,16 @@ class Api {
   /**
    * Set param value.
    */
-  public function setParam($key, $value) {
+  public function setParam($key, $value)
+  {
     $this->params[$key] = $value;
   }
 
   /**
    * Get param value.
    */
-  public function getParam($key, $default = '') {
+  public function getParam($key, $default = '')
+  {
     if (array_key_exists($key, $this->params)) {
       return $this->params[$key];
     }
@@ -833,7 +923,8 @@ class Api {
   /**
    * Post request with curl and return response.
    */
-  protected function request($uri, $params) {
+  protected function request($uri, $params)
+  {
     $ch = curl_init($uri);
     curl_setopt($ch, CURLOPT_POST, TRUE);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -864,14 +955,16 @@ class Api {
   /**
    * Response separator.
    */
-  public static function responseSeparator($value) {
+  public static function responseSeparator($value)
+  {
     return explode(self::RESPONSE_SEPARATOR, $value);
   }
 
   /**
    * Process curl response before return callback.
    */
-  public static function processResponse($response) {
+  public static function processResponse($response)
+  {
     // mb_convert_encoding($value, 'UTF-8', 'SJIS');
     parse_str($response, $data);
     // API error or success.
@@ -887,8 +980,7 @@ class Api {
         }
         $result[$key] = $value;
       }
-    }
-    else {
+    } else {
       $multiple = TRUE;
       // Rearrange data with new structure.
       $data = array_map('self::responseSeparator', $data);
@@ -916,19 +1008,18 @@ class Api {
   /**
    * Add http parameters.
    */
-  protected function addHttpParams() {
+  protected function addHttpParams()
+  {
     // Add user agent.
     if (isset($_SERVER['HTTP_USER_AGENT'])) {
       $this->defaultParams['http_user_agent'] = $_SERVER['HTTP_USER_AGENT'];
-    }
-    else {
+    } else {
       $this->defaultParams['http_user_agent'] = self::HTTP_USER_AGENT;
     }
     // Add accept.
     if (isset($_SERVER['HTTP_ACCEPT'])) {
       $this->defaultParams['http_accept'] = $_SERVER['HTTP_ACCEPT'];
-    }
-    else {
+    } else {
       $this->defaultParams['http_accept'] = self::HTTP_ACCEPT;
     }
   }
@@ -936,14 +1027,16 @@ class Api {
   /**
    * Get api url.
    */
-  public function getApiUrl() {
+  public function getApiUrl()
+  {
     return $this->apiUrl;
   }
 
   /**
    * Execute api call method.
    */
-  public function callApi($method, $params = array()) {
+  public function callApi($method, $params = array())
+  {
     $this->call($method, $params);
     return $this->execute();
   }
@@ -951,7 +1044,8 @@ class Api {
   /**
    * Pre-call api method.
    */
-  public function call($method, $params = array()) {
+  public function call($method, $params = array())
+  {
     // Check api method exist.
     if (!isset(self::$apiMethods[$method])) {
       throw new \Exception(sprintf('API method %s does not exist.', $method));
@@ -967,7 +1061,8 @@ class Api {
   /**
    * Execute call api and return results.
    */
-  public function execute() {
+  public function execute()
+  {
     $uri = $this->getApiUrl();
     // Process parameters as GMO format.
     $params = $this->buildParams();
@@ -977,7 +1072,8 @@ class Api {
   /**
    * Process parameters as GMO format.
    */
-  protected function buildParams() {
+  protected function buildParams()
+  {
     $params = array();
     $mapping = $this->getParamsMapping();
     foreach ($this->params as $key => $value) {
@@ -992,5 +1088,4 @@ class Api {
     }
     return $params;
   }
-
 }

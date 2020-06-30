@@ -23,7 +23,8 @@ namespace GMO\Payment;
  *   It will be return only one or multiple records.
  *   Multiple records joined with '|' whatever success or failed.
  */
-class ShopApi extends Api {
+class ShopApi extends Api
+{
 
   /**
    * Site id and site pass disable flag.
@@ -38,7 +39,8 @@ class ShopApi extends Api {
   /**
    * Object constructor.
    */
-  public function __construct($host, $shop_id, $shop_pass, $params = array()) {
+  public function __construct($host, $shop_id, $shop_pass, $params = array())
+  {
     if (!is_array($params)) {
       $params = array();
     }
@@ -50,14 +52,16 @@ class ShopApi extends Api {
   /**
    * Disable site_id and site_pass fields which not required for some api.
    */
-  protected function disableSiteIdAndPass() {
+  protected function disableSiteIdAndPass()
+  {
     $this->disableSiteIdAndPass = TRUE;
   }
 
   /**
    * Disable shop_id and shop_pass fields which not required for some api.
    */
-  protected function disableShopIdAndPass() {
+  protected function disableShopIdAndPass()
+  {
     $this->disableShopIdAndPass = TRUE;
   }
 
@@ -66,7 +70,8 @@ class ShopApi extends Api {
    *
    * Remove shop_id and shop_pass if disabled.
    */
-  protected function defaultParams() {
+  protected function defaultParams()
+  {
     if ($this->disableSiteIdAndPass === TRUE) {
       unset($this->defaultParams['site_id'], $this->defaultParams['site_pass']);
     }
@@ -137,7 +142,8 @@ class ShopApi extends Api {
    * Access pass (取引パスワード)
    * --AccessPass string(32)
    */
-  public function entryTran($order_id, $job_cd, $amount = 0, $data = array()) {
+  public function entryTran($order_id, $job_cd, $amount = 0, $data = array())
+  {
     if (!is_array($data)) {
       $data = array();
     }
@@ -185,7 +191,8 @@ class ShopApi extends Api {
    * Access pass (取引パスワード)
    * --AccessPass string(32)
    */
-  public function entryTranAu($order_id, $job_cd, $amount, $tax = 0) {
+  public function entryTranAu($order_id, $job_cd, $amount, $tax = 0)
+  {
     $data = array(
       'order_id' => $order_id,
       'job_cd'   => $job_cd,
@@ -227,7 +234,8 @@ class ShopApi extends Api {
    * Access pass (取引パスワード)
    * --AccessPass string(32)
    */
-  public function entryTranAuContinuance($order_id, $amount, $first_amount, $data = array()) {
+  public function entryTranAuContinuance($order_id, $amount, $first_amount, $data = array())
+  {
     if (!is_array($data)) {
       $data = array();
     }
@@ -263,7 +271,8 @@ class ShopApi extends Api {
    * Access pass (取引パスワード)
    * --AccessPass string(32)
    */
-  public function entryTranCvs($order_id, $amount, $tax = 0) {
+  public function entryTranCvs($order_id, $amount, $tax = 0)
+  {
     $data = array(
       'order_id' => $order_id,
       'amount'   => $amount,
@@ -309,7 +318,8 @@ class ShopApi extends Api {
    * Access pass (取引パスワード)
    * --AccessPass string(32)
    */
-  public function entryTranDocomo($order_id, $job_cd, $amount, $tax = 0) {
+  public function entryTranDocomo($order_id, $job_cd, $amount, $tax = 0)
+  {
     $data = array(
       'order_id' => $order_id,
       'job_cd'   => $job_cd,
@@ -345,7 +355,8 @@ class ShopApi extends Api {
    * Access pass (取引パスワード)
    * --AccessPass string(32)
    */
-  public function entryTranDocomoContinuance($order_id, $amount, $tax = 0) {
+  public function entryTranDocomoContinuance($order_id, $amount, $tax = 0)
+  {
     $data = array(
       'order_id' => $order_id,
       'amount'   => $amount,
@@ -380,7 +391,8 @@ class ShopApi extends Api {
    * Access pass (取引パスワード)
    * --AccessPass string(32)
    */
-  public function entryTranEdy($order_id, $amount, $tax = 0) {
+  public function entryTranEdy($order_id, $amount, $tax = 0)
+  {
     $data = array(
       'order_id' => $order_id,
       'amount'   => $amount,
@@ -418,7 +430,8 @@ class ShopApi extends Api {
    * Access pass (取引パスワード)
    * --AccessPass string(32)
    */
-  public function entryTranJcbPreca($order_id, $amount, $tax = 0) {
+  public function entryTranJcbPreca($order_id, $amount, $tax = 0)
+  {
     $data = array(
       'order_id' => $order_id,
       'amount'   => $amount,
@@ -453,7 +466,8 @@ class ShopApi extends Api {
    * Access pass (取引パスワード)
    * --AccessPass string(32)
    */
-  public function entryTranJibun($order_id, $amount, $tax = 0) {
+  public function entryTranJibun($order_id, $amount, $tax = 0)
+  {
     $data = array(
       'order_id' => $order_id,
       'amount'   => $amount,
@@ -488,7 +502,8 @@ class ShopApi extends Api {
    * Access pass (取引パスワード)
    * --AccessPass string(32)
    */
-  public function entryTranPayEasy($order_id, $amount, $tax = 0) {
+  public function entryTranPayEasy($order_id, $amount, $tax = 0)
+  {
     $data = array(
       'order_id' => $order_id,
       'amount'   => $amount,
@@ -542,7 +557,8 @@ class ShopApi extends Api {
    * Access pass (取引パスワード)
    * --AccessPass string(32)
    */
-  public function entryTranPaypal($order_id, $job_cd, $amount, $data = array()) {
+  public function entryTranPaypal($order_id, $job_cd, $amount, $data = array())
+  {
     if (!is_array($data)) {
       $data = array();
     }
@@ -589,7 +605,8 @@ class ShopApi extends Api {
    * Access pass (取引パスワード)
    * --AccessPass string(32)
    */
-  public function entryTranSb($order_id, $job_cd, $amount, $tax = 0) {
+  public function entryTranSb($order_id, $job_cd, $amount, $tax = 0)
+  {
     $data = array(
       'order_id' => $order_id,
       'job_cd'   => $job_cd,
@@ -625,7 +642,8 @@ class ShopApi extends Api {
    * Access pass (取引パスワード)
    * --AccessPass string(32)
    */
-  public function entryTranSuica($order_id, $amount, $tax = 0) {
+  public function entryTranSuica($order_id, $amount, $tax = 0)
+  {
     $data = array(
       'order_id' => $order_id,
       'amount'   => $amount,
@@ -663,7 +681,8 @@ class ShopApi extends Api {
    * Access pass (取引パスワード)
    * --AccessPass string(32)
    */
-  public function entryTranWebmoney($order_id, $amount, $tax = 0) {
+  public function entryTranWebmoney($order_id, $amount, $tax = 0)
+  {
     $data = array(
       'order_id' => $order_id,
       'amount'   => $amount,
@@ -768,7 +787,8 @@ class ShopApi extends Api {
    * Client field 3 (加盟店自由項目 3)
    * --ClientField3 string(100)
    */
-  public function execTran($access_id, $access_pass, $order_id, $data = array()) {
+  public function execTran($access_id, $access_pass, $order_id, $data = array())
+  {
     // Disable shop id and shop pass.
     if (!is_array($data)) {
       $data = array();
@@ -786,7 +806,7 @@ class ShopApi extends Api {
 
     // If it doesn't exist cardseq or token.
     if (isset($data['card_seq']) || isset($data['token'])) {
-        unset($data['card_no'], $data['expire'], $data['security_code']);
+      unset($data['card_no'], $data['expire'], $data['security_code']);
     }
 
     $this->addHttpParams();
@@ -966,7 +986,8 @@ class ShopApi extends Api {
    * Client field 3 (加盟店自由項目 3)
    * --ClientField3 string(100)
    */
-  public function execTranCvs($access_id, $access_pass, $order_id, $convenience, $customer_name, $customer_kana, $tel_no, $receipts_disp_11, $receipts_disp_12, $receipts_disp_13, $data = array()) {
+  public function execTranCvs($access_id, $access_pass, $order_id, $convenience, $customer_name, $customer_kana, $tel_no, $receipts_disp_11, $receipts_disp_12, $receipts_disp_13, $data = array())
+  {
     // Disable shop id and shop pass.
     if (!is_array($data)) {
       $data = array();
@@ -1008,7 +1029,8 @@ class ShopApi extends Api {
    * Status 成功時は以下のステータスが返却されます。
    * --Status CANCEL：支払い停止
    */
-  public function cvsCancel($access_id, $access_pass, $order_id){
+  public function cvsCancel($access_id, $access_pass, $order_id)
+  {
     $data = array(
       'access_id' => $access_id,
       'access_pass' => $access_pass,
@@ -1092,7 +1114,8 @@ class ShopApi extends Api {
    * --StartLimitDate string(14)
    *   Format: yyyyMMddHHmmss
    */
-  public function execTranDocomo($access_id, $access_pass, $order_id, $ret_url, $data = array()) {
+  public function execTranDocomo($access_id, $access_pass, $order_id, $ret_url, $data = array())
+  {
     if (!is_array($data)) {
       $data = array();
     }
@@ -1179,7 +1202,8 @@ class ShopApi extends Api {
    * --StartLimitDate string(14)
    *   Format: yyyyMMddHHmmss
    */
-  public function execTranDocomoContinuance($access_id, $access_pass, $order_id, $ret_url, $first_month_free_flag, $confirm_base_date, $data = array()) {
+  public function execTranDocomoContinuance($access_id, $access_pass, $order_id, $ret_url, $first_month_free_flag, $confirm_base_date, $data = array())
+  {
     if (!is_array($data)) {
       $data = array();
     }
@@ -1276,7 +1300,8 @@ class ShopApi extends Api {
    * Client field 3 (加盟店自由項目 3)
    * --ClientField3 string(100)
    */
-  public function execTranEdy($access_id, $access_pass, $order_id, $mail_address, $data = array()) {
+  public function execTranEdy($access_id, $access_pass, $order_id, $mail_address, $data = array())
+  {
     // Disable shop id and shop pass.
     if (!is_array($data)) {
       $data = array();
@@ -1391,7 +1416,8 @@ class ShopApi extends Api {
    * Card type code (券種コード)
    * --CardTypeCode string(4)
    */
-  public function execTranJcbPreca($access_id, $access_pass, $order_id, $card_no, $approval_no, $data = array()) {
+  public function execTranJcbPreca($access_id, $access_pass, $order_id, $card_no, $approval_no, $data = array())
+  {
     if (!is_array($data)) {
       $data = array();
     }
@@ -1452,7 +1478,8 @@ class ShopApi extends Api {
    * --StartLimitDate string(14)
    *   Format: yyyyMMddHHmmss
    */
-  public function execTranJibun($access_id, $access_pass, $order_id, $ret_url, $data = array()) {
+  public function execTranJibun($access_id, $access_pass, $order_id, $ret_url, $data = array())
+  {
     if (!is_array($data)) {
       $data = array();
     }
@@ -1624,7 +1651,8 @@ class ShopApi extends Api {
    * Client field 3 (加盟店自由項目 3)
    * --ClientField3 string(100)
    */
-  public function execTranPayEasy($access_id, $access_pass, $order_id, $customer_name, $customer_kana, $tel_no, $receipts_disp_11, $receipts_disp_12, $receipts_disp_13, $data = array()) {
+  public function execTranPayEasy($access_id, $access_pass, $order_id, $customer_name, $customer_kana, $tel_no, $receipts_disp_11, $receipts_disp_12, $receipts_disp_13, $data = array())
+  {
     // Disable shop id and shop pass.
     if (!is_array($data)) {
       $data = array();
@@ -1691,7 +1719,8 @@ class ShopApi extends Api {
    * Client field 3 (加盟店自由項目 3)
    * --ClientField3 string(100)
    */
-  public function execTranPaypal($access_id, $access_pass, $order_id, $item_name, $redirect_url, $data = array()) {
+  public function execTranPaypal($access_id, $access_pass, $order_id, $item_name, $redirect_url, $data = array())
+  {
     if (!is_array($data)) {
       $data = array();
     }
@@ -1752,7 +1781,8 @@ class ShopApi extends Api {
    * --StartLimitDate string(14)
    *   Format: yyyyMMddHHmmss
    */
-  public function execTranSb($access_id, $access_pass, $order_id, $ret_url, $data = array()) {
+  public function execTranSb($access_id, $access_pass, $order_id, $ret_url, $data = array())
+  {
     if (!is_array($data)) {
       $data = array();
     }
@@ -1859,7 +1889,8 @@ class ShopApi extends Api {
    * Client field 3 (加盟店自由項目 3)
    * --ClientField3 string(100)
    */
-  public function execTranSuica($access_id, $access_pass, $order_id, $item_name, $mail_address, $data = array()) {
+  public function execTranSuica($access_id, $access_pass, $order_id, $item_name, $mail_address, $data = array())
+  {
     // Disable shop id and shop pass.
     if (!is_array($data)) {
       $data = array();
@@ -1950,7 +1981,8 @@ class ShopApi extends Api {
    * Client field 3 (加盟店自由項目 3)
    * --ClientField3 string(100)
    */
-  public function execTranWebmoney($order_id, $item_name, $customer_name, $data = array()) {
+  public function execTranWebmoney($order_id, $item_name, $customer_name, $data = array())
+  {
     if (!is_array($data)) {
       $data = array();
     }
@@ -2004,7 +2036,8 @@ class ShopApi extends Api {
    * --TranDate string(14)
    *   Format: yyyyMMddHHmmss
    */
-  public function alterTran($access_id, $access_pass, $data = array()) {
+  public function alterTran($access_id, $access_pass, $data = array())
+  {
     if (!is_array($data)) {
       $data = array();
     }
@@ -2119,7 +2152,8 @@ class ShopApi extends Api {
    * Client field 3 (加盟店自由項目 3)
    * --ClientField3 string(100)
    */
-  public function searchTrade($order_id) {
+  public function searchTrade($order_id)
+  {
     $data = array('order_id' => $order_id);
     return $this->callApi('searchTrade', $data);
   }
@@ -2243,7 +2277,8 @@ class ShopApi extends Api {
    * Pay type (決済方法)
    * --PayType string(2)
    */
-  public function searchTradeMulti($order_id, $pay_type) {
+  public function searchTradeMulti($order_id, $pay_type)
+  {
     $data = array('order_id' => $order_id, 'pay_type' => $pay_type);
     return $this->callApi('searchTradeMulti', $data);
   }
@@ -2292,7 +2327,8 @@ class ShopApi extends Api {
    * Cancel tax (キャンセル税送料)
    * --CancelTax integer(7)
    */
-  public function auCancelReturn($access_id, $access_pass, $order_id, $cancel_amount, $cancel_tax = 0) {
+  public function auCancelReturn($access_id, $access_pass, $order_id, $cancel_amount, $cancel_tax = 0)
+  {
     $data = array(
       'access_id'     => $access_id,
       'access_pass'   => $access_pass,
@@ -2327,7 +2363,8 @@ class ShopApi extends Api {
    *   Return status when cancel success.
    *     CANCEL:継続課金解約
    */
-  public function auContinuanceCancel($access_id, $access_pass, $order_id) {
+  public function auContinuanceCancel($access_id, $access_pass, $order_id)
+  {
     $data = array(
       'access_id'   => $access_id,
       'access_pass' => $access_pass,
@@ -2388,7 +2425,8 @@ class ShopApi extends Api {
    * Cancel tax (キャンセル税送料)
    * --CancelTax integer(7)
    */
-  public function auContinuanceChargeCancel($access_id, $access_pass, $order_id, $continuance_month, $data = array()) {
+  public function auContinuanceChargeCancel($access_id, $access_pass, $order_id, $continuance_month, $data = array())
+  {
     if (!is_array($data)) {
       $data = array();
     }
@@ -2440,7 +2478,8 @@ class ShopApi extends Api {
    * Tax (税送料)
    * --Tax integer(7)
    */
-  public function auSales($access_id, $access_pass, $order_id, $amount, $tax = 0) {
+  public function auSales($access_id, $access_pass, $order_id, $amount, $tax = 0)
+  {
     $data = array(
       'access_id'   => $access_id,
       'access_pass' => $access_pass,
@@ -2480,7 +2519,8 @@ class ShopApi extends Api {
    * --TranDate string(14)
    *   Format: yyyyMMddHHmmss
    */
-  public function cancelAuthPaypal($access_id, $access_pass, $order_id) {
+  public function cancelAuthPaypal($access_id, $access_pass, $order_id)
+  {
     $data = array(
       'access_id'   => $access_id,
       'access_pass' => $access_pass,
@@ -2524,7 +2564,8 @@ class ShopApi extends Api {
    * --TranDate string(14)
    *   Format: yyyyMMddHHmmss
    */
-  public function cancelTranPaypal($access_id, $access_pass, $order_id, $amount, $tax = 0) {
+  public function cancelTranPaypal($access_id, $access_pass, $order_id, $amount, $tax = 0)
+  {
     $data = array(
       'access_id'   => $access_id,
       'access_pass' => $access_pass,
@@ -2589,7 +2630,8 @@ class ShopApi extends Api {
    * --TranDate string(14)
    *   Format: yyyyMMddHHmmss
    */
-  public function changeTran($access_id, $access_pass, $job_cd, $amount, $data = array()) {
+  public function changeTran($access_id, $access_pass, $job_cd, $amount, $data = array())
+  {
     if (!is_array($data)) {
       $data = array();
     }
@@ -2643,7 +2685,8 @@ class ShopApi extends Api {
    * Cancel tax (キャンセル税送料)
    * --CancelTax integer(6)
    */
-  public function docomoCancelReturn($access_id, $access_pass, $order_id, $cancel_amount, $cancel_tax = 0) {
+  public function docomoCancelReturn($access_id, $access_pass, $order_id, $cancel_amount, $cancel_tax = 0)
+  {
     $data = array(
       'access_id'     => $access_id,
       'access_pass'   => $access_pass,
@@ -2701,7 +2744,8 @@ class ShopApi extends Api {
    * Cancel tax (キャンセル税送料)
    * --CancelTax integer(6)
    */
-  public function docomoContinuanceCancelReturn($access_id, $access_pass, $order_id, $cancel_amount, $continuance_month, $cancel_tax = 0) {
+  public function docomoContinuanceCancelReturn($access_id, $access_pass, $order_id, $cancel_amount, $continuance_month, $cancel_tax = 0)
+  {
     $data = array(
       'access_id'         => $access_id,
       'access_pass'       => $access_pass,
@@ -2749,7 +2793,8 @@ class ShopApi extends Api {
    * Tax (税送料)
    * --Tax integer(6)
    */
-  public function docomoContinuanceSales($access_id, $access_pass, $order_id, $amount, $tax = 0) {
+  public function docomoContinuanceSales($access_id, $access_pass, $order_id, $amount, $tax = 0)
+  {
     $data = array(
       'access_id'   => $access_id,
       'access_pass' => $access_pass,
@@ -2796,7 +2841,8 @@ class ShopApi extends Api {
    * Tax (税送料)
    * --Tax integer(6)
    */
-  public function docomoContinuanceShopChange($access_id, $access_pass, $order_id, $amount, $tax = 0) {
+  public function docomoContinuanceShopChange($access_id, $access_pass, $order_id, $amount, $tax = 0)
+  {
     $data = array(
       'access_id'   => $access_id,
       'access_pass' => $access_pass,
@@ -2852,7 +2898,8 @@ class ShopApi extends Api {
    * Tax (税送料)
    * --Tax integer(6)
    */
-  public function docomoContinuanceShopEnd($access_id, $access_pass, $order_id, $amount, $last_month_free_flag, $tax = 0) {
+  public function docomoContinuanceShopEnd($access_id, $access_pass, $order_id, $amount, $last_month_free_flag, $tax = 0)
+  {
     $data = array(
       'access_id'            => $access_id,
       'access_pass'          => $access_pass,
@@ -2930,7 +2977,8 @@ class ShopApi extends Api {
    * --StartLimitDate string(14)
    *   Format: yyyyMMddHHmmss
    */
-  public function docomoContinuanceUserChange($access_id, $access_pass, $order_id, $amount, $ret_url, $data = array()) {
+  public function docomoContinuanceUserChange($access_id, $access_pass, $order_id, $amount, $ret_url, $data = array())
+  {
     if (!is_array($data)) {
       $data = array();
     }
@@ -3016,7 +3064,8 @@ class ShopApi extends Api {
    * --StartLimitDate string(14)
    *   Format: yyyyMMddHHmmss
    */
-  public function docomoContinuanceUserEnd($access_id, $access_pass, $order_id, $amount, $ret_url, $last_month_free_flag, $data = array()) {
+  public function docomoContinuanceUserEnd($access_id, $access_pass, $order_id, $amount, $ret_url, $last_month_free_flag, $data = array())
+  {
     if (!is_array($data)) {
       $data = array();
     }
@@ -3068,7 +3117,8 @@ class ShopApi extends Api {
    * Tax (税送料)
    * --Tax integer(7)
    */
-  public function docomoSales($access_id, $access_pass, $order_id, $amount, $tax = 0) {
+  public function docomoSales($access_id, $access_pass, $order_id, $amount, $tax = 0)
+  {
     $data = array(
       'access_id'   => $access_id,
       'access_pass' => $access_pass,
@@ -3112,7 +3162,8 @@ class ShopApi extends Api {
    * Tax (税送料)
    * --Tax integer(5)
    */
-  public function jcbPrecaBalanceInquiry($card_no, $approval_no) {
+  public function jcbPrecaBalanceInquiry($card_no, $approval_no)
+  {
     $data = array(
       'card_no'     => $card_no,
       'approval_no' => $approval_no,
@@ -3147,7 +3198,8 @@ class ShopApi extends Api {
    *   When cancellation success will be returned the following status.
    *     CANCEL: キャンセル
    */
-  public function jcbPrecaCancel($access_id, $access_pass, $order_id) {
+  public function jcbPrecaCancel($access_id, $access_pass, $order_id)
+  {
     $data = array(
       'access_id'   => $access_id,
       'access_pass' => $access_pass,
@@ -3201,7 +3253,8 @@ class ShopApi extends Api {
    * Tax (税送料)
    * --Tax integer(10)
    */
-  public function paypalSales($access_id, $access_pass, $order_id, $amount, $tax = 0) {
+  public function paypalSales($access_id, $access_pass, $order_id, $amount, $tax = 0)
+  {
     $data = array(
       'access_id'   => $access_id,
       'access_pass' => $access_pass,
@@ -3251,7 +3304,8 @@ class ShopApi extends Api {
    * Cancel tax (キャンセル税送料)
    * --CancelTax integer(5)
    */
-  public function sbCancel($access_id, $access_pass, $order_id, $cancel_amount, $cancel_tax = 0) {
+  public function sbCancel($access_id, $access_pass, $order_id, $cancel_amount, $cancel_tax = 0)
+  {
     $data = array(
       'access_id'     => $access_id,
       'access_pass'   => $access_pass,
@@ -3311,7 +3365,8 @@ class ShopApi extends Api {
    * Client field 3 (加盟店自由項目 3)
    * --ClientField3 string(100)
    */
-  public function tdVerify($pa_res, $md) {
+  public function tdVerify($pa_res, $md)
+  {
     $this->disableShopIdAndPass();
     $data = array(
       'pa_res' => $pa_res,
@@ -3325,14 +3380,16 @@ class ShopApi extends Api {
    *
    * See @tdVerify.
    */
-  public function secureTran($pa_res, $md) {
+  public function secureTran($pa_res, $md)
+  {
     return $this->tdVerify($pa_res, $md);
   }
 
   /**
    * Book sales process.
    */
-  public function bookSalesProcess($access_id, $access_pass, $booking_date, $amount) {
+  public function bookSalesProcess($access_id, $access_pass, $booking_date, $amount)
+  {
     $data = array(
       'access_id'    => $access_id,
       'access_pass'  => $access_pass,
@@ -3345,7 +3402,8 @@ class ShopApi extends Api {
   /**
    * Search booking info.
    */
-  public function searchBookingInfo($access_id, $access_pass) {
+  public function searchBookingInfo($access_id, $access_pass)
+  {
     $data = array(
       'access_id'   => $access_id,
       'access_pass' => $access_pass,
@@ -3356,7 +3414,8 @@ class ShopApi extends Api {
   /**
    * Unbook sales process.
    */
-  public function unbookSalesProcess($access_id, $access_pass) {
+  public function unbookSalesProcess($access_id, $access_pass)
+  {
     $data = array(
       'access_id'   => $access_id,
       'access_pass' => $access_pass,
@@ -3390,7 +3449,8 @@ class ShopApi extends Api {
    * AccessPass
    * --AccessPass string(32)
    */
-  public function entryTranVirtualaccount($order_id, $amount, $tax = 0){
+  public function entryTranVirtualaccount($order_id, $amount, $tax = 0)
+  {
     $data = array(
       'order_id' => $order_id,
       'amount' => $amount,
@@ -3438,7 +3498,8 @@ class ShopApi extends Api {
    * Trade Client Mailaddress
    * --TradeClientMailaddress string(256) null.
    **/
-  public function execTranVirtualaccount($access_id, $access_pass, $order_id, $trade_days, $data = array()){
+  public function execTranVirtualaccount($access_id, $access_pass, $order_id, $trade_days, $data = array())
+  {
     if (!is_array($data)) {
       $data = array();
     }
@@ -3448,5 +3509,854 @@ class ShopApi extends Api {
     $data['trade_days']  = $trade_days;
 
     return $this->callApi('execTranVirtualaccount', $data);
+  }
+
+  /**
+   * Entry transaction of NetCash
+   * 
+   * @Input parameters
+   * 
+   * Version (バージョン)
+   * --Version string(3) null.
+   * 
+   * Order ID (オーダーID)
+   * --OrderID string(27) not null.
+   *
+   * Amount
+   * --Amount integer(6) not null.
+   *
+   * Tax
+   * --Tax Number(6) null.
+   *
+   * @Output parameters
+   *
+   * Order ID
+   * --OrderID string(27)
+   *
+   * Access ID
+   * --AccessID string(32)
+   *
+   * AccessPass
+   * --AccessPass string(32)
+   * 
+   */
+
+  public function entryTranNetCash($order_id, $amount, $tax = 0, $data = array())
+  {
+    $data = array(
+      'order_id' => $order_id,
+      'amount' => $amount,
+      'tax' => $tax
+    );
+
+    return $this->callApi('entryTranNetCash', $data);
+  }
+
+  /**
+   * Exec transcation of NetCash.
+   *
+   * @Input parameters
+   *
+   * Version (バージョン)
+   * --Version string(3) null.
+   *
+   * Access ID (取引 ID)
+   * --AccessID string(32) not null.
+   *
+   * Access pass (取引パスワード)
+   * --AccessPass string(32) not null.
+   *
+   * Ret URL (リダイレクト URL)
+   * --RetURl string(256) not null.
+   * 
+   * Client Field 1 (加盟店自由項目1)
+   * -ClienField1 string(100) null.
+   * 
+   * Client Field 2 (加盟店自由項目2)
+   * -ClienField2 string(100) null.
+   * 
+   * Client Field 3 (加盟店自由項目3)
+   * -ClienField3 string(100) null.
+   *
+   * Net Cash Type (決済方法)
+   * --NetCashPayType string(40) not null.
+   *
+   * 
+   * @Ouput parameters
+   * 
+   * Acces ID (取引ID )
+   * --AccessID string(32) 
+   * 
+   * Token (トークン)
+   * --Token string(256)
+   * 
+   * Start Url (支払手続き開始 IF の URL)
+   * --StartURL string(256)
+   **/
+
+  public function execTranNetCash($access_id, $access_pass, $order_id, $ret_url, $pay_type, $data = array())
+  {
+    if (!is_array($data)) {
+      $data = array();
+    }
+    $data['access_id']   = $access_id;
+    $data['access_pass'] = $access_pass;
+    $data['order_id']    = $order_id;
+    $data['ret_url']     = $ret_url;
+    $data['netcash_pay_type'] = $pay_type;
+
+    return $this->callApi('execTranNetCash', $data);
+  }
+
+  /**
+   * Entry transaction of RakutenId
+   * 
+   * @Input parameters
+   * 
+   * Version (バージョン)
+   * --Version string(3) null.
+   * 
+   * Order ID (オーダーID)
+   * --OrderID string(27) not null.
+   *
+   *  Job cd (処理区分)
+   * --JobCd string(7) not null.
+   *
+   *   Allowed values:
+   *     AUTH: provisional sales (仮売上).
+   *     CAPTURE: immediate sales (即時売上).
+   *     REGISTER: subcription (申込み（お客様への注文は行わずに随時決済に必要なサブスクリプション ID の発行を行います）)
+   *     
+   * Amount
+   * --Amount integer(8) not null.
+   *
+   * Tax
+   * --Tax Number(5) null.
+   *
+   * @Output parameters
+   *
+   * Order ID
+   * --OrderID string(27)
+   *
+   * Access ID
+   * --AccessID string(32)
+   *
+   * AccessPass
+   * --AccessPass string(32)
+   * 
+   */
+
+  public function entryTranRakutenpay($order_id, $amount, $job_cd = 'AUTH', $tax = 0, $data = array())
+  {
+    $data = array(
+      'order_id' => $order_id,
+      'job_cd'  => $job_cd,
+      'amount' => $amount,
+      'tax' => $tax
+    );
+
+    return $this->callApi('entryTranRakutenPay', $data);
+  }
+
+  /**
+   * Exec transaction Rakuten Pay
+   * 
+   * @Input parameters
+   *
+   * Version (バージョン)
+   * --Version string(3) null.
+   * 
+   * Access ID (取引 ID)
+   * --AccessID string(32) not null.
+   *
+   * Access Pass (取引パスワード)
+   * --AccessPass string(32) not null.
+   *
+   * Order ID (オーダーID)
+   * --OrderID string(27) not null.
+   * 
+   * Client Field 1 (加盟店自由項目1)
+   * --ClientField1 string(100) null.
+   * 
+   * Client Field 2 (加盟店自由項目2)
+   * --ClientField1 string(100) null.
+   * 
+   * Client Field 3 (加盟店自由項目3)
+   * --ClientField1 string(100) null.
+   * 
+   * Item Id (商品 ID)
+   * -- ItemId [ require if Job_CD = AUTH or CAPTURE ] string(100) not null.
+   *  
+   * Item Sub Id (商品サブID)
+   * -- ItemSubId string (77) not null.
+   * 
+   * Item Name (商品名)
+   * -- ItemName string(255) not null.
+   * 
+   * Return Url (決済結果戻しURL)
+   * -- RetUrl string(2048) not null.
+   * 
+   * Error Return Url (処理NG時URL)
+   * -- ErrorRcvURL string(2048) not null.
+   * 
+   * Payment Term (支払開始期限秒)
+   * -- PaymentTermSec number(5) null.
+   * 
+   * Multi Item (複数商品(※2))
+   * -- MultiItem string(30000) null.
+   * 
+   * Subcription Type (サブスクリプションタイプ)
+   * -- SubscriptionType string(10) null.
+   * 
+   * Subcription Name (サブスクリプション名)
+   * -- SubscriptionName [ require if Job_CD = REGISTER] string(200) null.
+   * 
+   * Settlement Subscription Id (決済用サブスクリプションID)
+   * -- SettlementSubscriptionId string(20) null.
+   */
+
+  public function execTranRakutenpay($access_id, $access_pass, $order_id, $data = array())
+  {
+    if (!is_array($data)) {
+      $data = array();
+    }
+
+    $data['access_id']   = $access_id;
+    $data['access_pass'] = $access_pass;
+    $data['order_id']    = $order_id;
+
+    return $this->callApi('execTranRakutenPay', $data);
+  }
+
+  /**
+   *  Rakutenid Sales 
+   * 
+   * @Input parameters
+   * 
+   * Version (バージョン)
+   * -- Version string(3) null.
+   * 
+   * Access ID (取引ID)
+   * -- AccessID string(32) not null.
+   * 
+   * Access Pass (取引パスワード)
+   * -- AccessPass string(32) not null.
+   * 
+   * Order ID (オーダーID)
+   * -- OrderID string(27) not null.
+   * 
+   * @Output parameters
+   * 
+   * Order ID (オーダーID)
+   * -- OrderID string(27)
+   * 
+   * Status (現状態)
+   * -- Status string()
+   * ・REQSALES：実売上受付け
+   * 
+   * Amount (利用金額)
+   * -- Amount number(8)
+   * 
+   * Tax (税送料)
+   * -- Tax number(8)
+   */
+
+  public function rakutenidSales($access_id, $access_pass, $order_id)
+  {
+    $data = array(
+      'access_id'   => $access_id,
+      'access_pass' => $access_pass,
+      'order_id'    => $order_id,
+    );
+    return $this->callApi('rakutenSales', $data);
+  }
+
+  /**
+   *  Rakutenid Cancel 
+   * 
+   * @Input parameters
+   * 
+   * Version (バージョン)
+   * -- Version string(3) null.
+   * 
+   * Access ID (取引ID)
+   * -- AccessID string(32) not null.
+   * 
+   * Access Pass (取引パスワード)
+   * -- AccessPass string(32) not null.
+   * 
+   * Order ID (オーダーID)
+   * -- OrderID string(27) not null.
+   * 
+   * @Output parameters
+   * 
+   * Order ID (オーダーID)
+   * -- OrderID string(27)
+   * 
+   * Status (現状態)
+   * -- Status string()
+   * ・REQCANCEL：注文キャンセル受付け
+   * 
+   * Amount (利用金額)
+   * -- Amount number(8)
+   * 
+   * Tax (税送料)
+   * -- Tax number(8)
+   */
+
+  public function rakutenidCancel($access_id, $access_pass, $order_id)
+  {
+    $data = array(
+      'access_id' => $access_id,
+      'access_pass' => $access_pass,
+      'order_id' => $order_id
+    );
+
+    return $this->callApi('rakutenidCancel', $data);
+  }
+
+  /**
+   *  Rakutenid Change 
+   * 
+   * @Input parameters
+   * 
+   * Version (バージョン)
+   * -- Version string(3) null.
+   * 
+   * Access ID (取引ID)
+   * -- AccessID string(32) not null.
+   * 
+   * Access Pass (取引パスワード)
+   * -- AccessPass string(32) not null.
+   * 
+   * Order ID (オーダーID)
+   * -- OrderID string(27) not null.
+   * 
+   * Amount (変更利用金額)
+   * -- Amount number(8) not null.
+   * 
+   * Tax (変更税送料)
+   * -- Tax number(8) null.
+   * 
+   * Use Coupon (クーポン使用フラグ)
+   * -- UseCoupon string(1)
+   * 
+   * Multi Item (複数商品)
+   * -- MultiItem string(30000) null.
+   * 
+   * @Output parameters
+   * 
+   * Order ID (オーダーID)
+   * -- OrderID string(27)
+   * 
+   * Status (現状態)
+   * -- Status string()
+   * 
+   * ・REQCHANGE：金額変更受付け
+   * 
+   * Amount (利用金額)
+   * -- Amount number(8)
+   * 
+   * Tax (税送料)
+   * -- Tax number(8)
+   */
+
+  public function rakutenidChange($access_id, $access_pass, $order_id, $amount, $tax = 0, $data = array())
+  {
+    if (!is_array($data)) {
+      $data = array();
+    }
+    $data['access_id']   = $access_id;
+    $data['access_pass'] = $access_pass;
+    $data['order_id']    = $order_id;
+    $data['amount']      = $amount;
+    $data['tax']         = $tax;
+
+    return $this->callApi('rakutenidChange', $data);
+  }
+
+  /**
+   * Entry transaction of Linepay
+   * 
+   * @Input Parameters
+   * 
+   * Version (バージョン)
+   * --Version string(3) null.
+   * 
+   * Order ID (オーダーID)
+   * -- OrderID string(27) not null.
+   * 
+   * JobCd (処理区分)
+   * -- JobCd string(-) not null
+   * 
+   *  Allowed values :
+   *    AUTH：Temporary Sales 仮売上
+   *    CAPTURE：Instant Sales 即時売上
+   * 
+   * @Output Parameters
+   * 
+   * Access ID (取引ID)
+   * -- AccessID string(32)
+   * 
+   * AccessPass (取引パスワード)
+   * -- AccessPass string(32)
+   * 
+   */
+
+  public function entryTranLinepay($order_id, $amount, $job_cd = 'AUTH', $data = array())
+  {
+    $data = array(
+      'order_id' => $order_id,
+      'job_cd'  => $job_cd,
+      'amount' => $amount,
+    );
+
+    return $this->callApi('entryTranLinePay', $data);
+  }
+
+  /**
+   * Exec transaction of Linepay
+   * 
+   * @Input Parameters
+   * 
+   * Version (バージョン)
+   * --Version string(3) null.
+   * 
+   * Access ID (取引ID)
+   * -- AccessID string(32) not null.
+   * 
+   * Access Pass (取引パスワード)
+   * -- AccessPass string(32) not null.
+   * 
+   * Order ID (オーダーID)
+   * -- OrderID string(27) not null.
+   * 
+   * Client Field 1 (加盟店自由項目1)
+   * -- ClientField1 string(100) null.
+   * 
+   * Client Field 2 (加盟店自由項目2)
+   * -- ClientField2 string(100) null.
+   * 
+   * Client Field 3 (加盟店自由項目3)
+   * -- ClientField3 string(100) null.
+   * 
+   * Client Field Flag (加盟店自由項目返却フラグ)
+   * -- ClientFieldFlag string(1) null.
+   * 
+   *    Allowed values :
+   *      以下のいずれかを設定します。
+   *      0：Do no return 返却しない(デフォルト)
+   *      1：Return 返却する
+   * 
+   * Return Url (決済結果戻しURL)
+   * -- RetURL string(2048) not null.
+   * 
+   * Error Return Url (処理NG時URL)
+   * -- ErrorRcvURL string(100) not null.
+   * 
+   * Product Name (商品名)
+   * -- ProductName string(4000) not null.
+   * 
+   * Product Image URL (商品画像URL)
+   * -- ProductImageUrl string(500) null.
+   * 
+   * Lang Cd (言語コード)
+   * -- LangCd string (10) null.
+   * 
+   *  Allowed values : 
+   *    決済待ち画面の言語コードを設定しま
+   *    す。
+   *     ja：日本語
+   *     ko：韓国語
+   *     en：英語
+   *     zh-Hans：中国語(簡体字)
+   *     zh-Hant：中国語(繁体字)
+   *     th：タイ語
+   *     未指定・または対応していない言語コー
+   *     ドが指定された場合は、英語(en)をデフ
+   *     ォルトで使用します。
+   * 
+   * @Output parameters
+   * 
+   * Access ID (取引ID)
+   * -- AccessID string(32)
+   * 
+   * Token (トークン)
+   * -- Token string(256)
+   * 
+   * Start URL (支払手続き開始 IF のURL)
+   * -- StartURL string(256)
+   * 
+   */
+
+  public function execTranLinepay($access_id, $access_pass, $order_id, $ret_url, $error_url, $data = array())
+  {
+    if (!is_array($data)) {
+      $data = array();
+    }
+    $data['access_id']   = $access_id;
+    $data['access_pass'] = $access_pass;
+    $data['order_id']    = $order_id;
+    $data['ret_url']  = $ret_url;
+    $data['error_url'] = $error_url;
+
+    return $this->callApi('execTranLinePay', $data);
+  }
+
+  /**
+   * Entry transaction of NetiD
+   * 
+   * @Input parameters
+   * 
+   * Version (バージョン)
+   * -- Version string(3) null.
+   * 
+   * Order ID (オーダーID)
+   * -- OrderID string(27) not null.
+   * 
+   * JobCd (処理区分)
+   * -- JobCd string(-)
+   * 
+   *  Allowed values :
+   *    以下のいずれかを設定します。
+   *    CAPTURE：Instant Sales 即時売上
+   *    AUTH：Temporary Sales 仮売上
+   * 
+   * Amount (利用金額)
+   * -- Amount number(7) not null.
+   * 
+   * Tax (税送料)
+   * -- Tax number(7) null.
+   * 
+   * Return URL (戻り先URL)
+   * -- RetURL string(256) null.
+   * 
+   * @Ouput parameters
+   * 
+   * AccessID (取引ID)
+   * -- AccessID string(32)
+   * 
+   * AccessPass (取引パスワード)
+   * -- AccessPass string(32)
+   */
+  public function entryTranNetid($order_id, $amount, $job_cd = 'AUTH', $tax = 0, $data = array())
+  {
+    $data = array(
+      'order_id' => $order_id,
+      'job_cd'  => $job_cd,
+      'amount' => $amount,
+      'tax'   => $tax
+    );
+
+    return $this->callApi('entryTranNetid', $data);
+  }
+
+  /**
+   * Exec transaction of NetiD
+   * 
+   * @Input parameters
+   * 
+   * Version (バージョン)
+   * -- Version string(3) null.
+   * 
+   * Access ID (取引ID)
+   * -- AccessID string(32) not null.
+   * 
+   * Access Pass (取引パスワード)
+   * -- AccessPass string(32) not null.
+   * 
+   * Order ID (オーダーID)
+   * -- OrderID string(27) not null.
+   * 
+   * Customer Name (氏名)
+   * -- CustomerName string(40) not null.
+   * 
+   * Payment Term Day (支払期限日数)
+   * -- PaymentTermDay string(40) null.
+   * 
+   * Mail Address (メールアドレス)
+   * -- MailAddres string(256) null.
+   * 
+   * Shop Mail Address (加盟店メールアドレス)
+   * -- ShopMailAddress string(256) null.
+   * 
+   * Item Name (商品・サービス名)
+   * -- ItemName string(40) not null.
+   * 
+   * Client Field 1 (加盟店自由項目1)
+   * -- ClientField1 string(100) null.
+   * 
+   * Client Field 2 (加盟店自由項目2)
+   * -- ClientField2 string(100) null.
+   * 
+   * Client Field 3 (加盟店自由項目3)
+   * -- ClientField3 string(100) null.
+   * 
+   * Client Field Flag (加盟店自由項目返却フラグ)
+   * -- ClientFieldFlag string(1) null.
+   * 
+   * Allowed values : 
+   *  以下のいずれかを設定します。
+   *     0：do not return 返却しない(デフォルト)
+   *     1：return 返却する
+   * 
+   * @Ouput parameters
+   * 
+   * Order ID (オーダーID)
+   * -- OrderID string(27)
+   * 
+   * Payment Term (支払期限日時)
+   * -- PaymentTerm string(14)
+   * 
+   * Tran Date (決済日付)
+   * -- TranDate string(14)
+   * 
+   * Check String (MD5ハッシュ)
+   * -- CheckString string(32)
+   * 
+   */
+
+  public function execTranNetid($access_id, $access_pass, $order_id, $customer_name, $item_name, $data = array())
+  {
+    if (!is_array($data)) {
+      $data = array();
+    }
+    $data['access_id']   = $access_id;
+    $data['access_pass'] = $access_pass;
+    $data['order_id']    = $order_id;
+    $data['customer_name']  = $customer_name;
+    $data['item_name'] = $item_name;
+
+    return $this->callApi('execTranNetid', $data);
+  }
+
+  /**
+   *  NetiD Sales 
+   * 
+   * @Input parameters
+   * 
+   * Version (バージョン)
+   * -- Version string(3) null.
+   * 
+   * Access ID (取引ID)
+   * -- AccessID string(32) not null.
+   * 
+   * Access Pass (取引パスワード)
+   * -- AccessPass string(32) not null.
+   * 
+   * Order ID (オーダーID)
+   * -- OrderID string(27) not null.
+   * 
+   * Amount (利用金額)
+   * -- Amount number(7) not null.
+   * 
+   * Tax (税送料)
+   * -- Tax number(7) not null.
+   * 
+   * @Output parameters
+   * 
+   * Order ID (オーダーID)
+   * -- OrderID string(27)
+   * 
+   * Forward (仕向先コード)
+   * -- Forward string(7)
+   */
+  public function netidSales($access_id, $access_pass, $order_id, $amount, $tax = 0)
+  {
+    $data = array(
+      'access_id'   => $access_id,
+      'access_pass' => $access_pass,
+      'order_id'    => $order_id,
+      'amount'      => $amount,
+      'tax'         => $tax,
+    );
+    return $this->callApi('netidSales', $data);
+  }
+
+  /**
+   *  NetiD Cancel 
+   * 
+   * @Input parameters
+   * 
+   * Version (バージョン)
+   * -- Version string(3) null.
+   * 
+   * Access ID (取引ID)
+   * -- AccessID string(32) not null.
+   * 
+   * Access Pass (取引パスワード)
+   * -- AccessPass string(32) not null.
+   * 
+   * Order ID (オーダーID)
+   * -- OrderID string(27) not null.
+   * 
+   * Amount (利用金額)
+   * -- Amount number(7) not null.
+   * 
+   * Tax (税送料)
+   * -- Tax number(7) not null.
+   * 
+   * @Output parameters
+   * 
+   * Order ID (オーダーID)
+   * -- OrderID string(27)
+   * 
+   * Forward (仕向先コード)
+   * -- Forward string(7)
+   */
+  public function netidCancel($access_id, $access_pass, $order_id, $tax = 0)
+  {
+    $data = array(
+      'access_id' => $access_id,
+      'access_pass' => $access_pass,
+      'order_id' => $order_id,
+      'tax'   => $tax
+    );
+
+    return $this->callApi('netidCancel', $data);
+  }
+
+
+  /**
+   *  NetiD Change 
+   * 
+   * @Input parameters
+   * 
+   * Version (バージョン)
+   * -- Version string(3) null.
+   * 
+   * Access ID (取引ID)
+   * -- AccessID string(32) not null.
+   * 
+   * Access Pass (取引パスワード)
+   * -- AccessPass string(32) not null.
+   * 
+   * Order ID (オーダーID)
+   * -- OrderID string(27) not null.
+   * 
+   * Amount (利用金額)
+   * -- Amount number(7) not null.
+   * 
+   * Tax (税送料)
+   * -- Tax number(7) not null.
+   * 
+   * @Output parameters
+   * 
+   * Order ID (オーダーID)
+   * -- OrderID string(27)
+   * 
+   * Forward (仕向先コード)
+   * -- Forward string(7)
+   */
+  public function netidChange($access_id, $access_pass, $order_id, $amount, $tax = 0)
+  {
+    $data['access_id']   = $access_id;
+    $data['access_pass'] = $access_pass;
+    $data['order_id']    = $order_id;
+    $data['amount']      = $amount;
+    $data['tax']         = $tax;
+
+    return $this->callApi('netidChange', $data);
+  }
+
+  /**
+   * Line Sales
+   * 
+   * @Input Parameters
+   * 
+   * Version (バージョン)
+   * -- Version string(3) null.
+   * 
+   * Access ID (取引ID)
+   * -- AccessID string(32) not null.
+   * 
+   * Access Pass (取引パスワード)
+   * -- AccessPass string(32) not null.
+   * 
+   * Amount (利用金額)
+   * -- Amount integer(8) not null.
+   * 
+   * Tax (税送料)
+   * -- Tax integer(7) null.
+   * 
+   * @Output parameters
+   * 
+   * Access ID (取引ID)
+   * -- AccessID string(32)
+   * 
+   * Status (現状態)
+   * -- Status string()
+   * 
+   * Amount (利用金額)
+   * -- Amount number(8)
+   * 
+   * Tax (税送料)
+   * -- Tax number(7)
+   */
+
+  public function lineSales($access_id, $access_pass, $amount, $tax = 0)
+  {
+    $data = array(
+      'access_id'   => $access_id,
+      'access_pass' => $access_pass,
+      'amount'      => $amount,
+      'tax'         => $tax,
+    );
+    return $this->callApi('lineSales', $data);
+  }
+
+  /**
+   * Line Cancel
+   * 
+   * @Input Parameters
+   * 
+   * Version (バージョン)
+   * -- Version string(3) null.
+   * 
+   * Access ID (取引ID)
+   * -- AccessID string(32) not null.
+   * 
+   * Access Pass (取引パスワード)
+   * -- AccessPass string(32) not null.
+   * 
+   * Cancel Amount (キャンセル金額)
+   * -- CancelAmount number(8) not null.
+   * 
+   * Cancel Tax (キャンセル税送料)
+   * -- CancelTax number(7) null.
+   * 
+   * @Output parameters
+   * 
+   * Access ID (取引ID)
+   * -- AccessID string(32)
+   * 
+   * Status (現状態)
+   * -- Status string()
+   *・CANCEL：キャンセル
+   *・RETURN：返品
+   * 
+   * Amount (利用金額)
+   * -- Amount number(8)
+   * 
+   * Tax (税送料)
+   * -- Tax number(7)
+   * 
+   * Cancel Amount (キャンセル金額)
+   * -- CancelAmount number(8)
+   * 
+   * Cancel Tax (キャンセル税送料)
+   * -- CancelTax number(7)
+   */
+
+  public function lineCancel($access_id, $access_pass, $cancel_amount, $cancel_tax = 0)
+  {
+    $data = array(
+      'access_id' => $access_id,
+      'access_pass' => $access_pass,
+      'cancel_amount' => $cancel_amount,
+      'cance_tax'   => $cancel_tax
+    );
+
+    return $this->callApi('lineCancel', $data);
   }
 }
